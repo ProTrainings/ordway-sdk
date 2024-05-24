@@ -41,27 +41,22 @@ module Ordway
       @default ||= ApiClient.new
     end
 
-    def get(endpoint, params: {})
+    def call(method, url, params: {})
       ApiError.handle do
-        response = @conn.get endpoint.to_s, params
+        response = @conn.send(method) do |req|
+          case method.to_sym
+          when :get, :delete
+            req.url url, params
+          when :post, :put, :patch
+            req.url url
+            req.body = params
+          end
+        end
 
         if @config.debugging
           @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
         end
 
-        Response.new(true, deserialize(response))
-      end
-    end
-
-    def post(endpoint, body)
-      ApiError.handle do
-        response = @conn.post endpoint.to_s do |req|
-          req.body = body
-        end
-
-        if @config.debugging
-          @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
-        end
         Response.new(true, deserialize(response))
       end
     end

@@ -14,7 +14,7 @@ module Ordway
         @api_client.config.logger.debug "Calling API: CustomersApi.get_customers ..."
       end
 
-      result = @api_client.get("customers/{id}".sub("{id}", id.to_s))
+      result = @api_client.call("get", "customers/{id}".sub("{id}", params: id.to_s))
 
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CustomersApi#get_customers\nData: #{result.inspect}"
@@ -30,7 +30,7 @@ module Ordway
         @api_client.config.logger.debug "Calling API: CustomersApi.post_customers ..."
       end
 
-      result = @api_client.post("customers", @api_client.object_to_http_body(opts[:body]))
+      result = @api_client.call("post", "customers", params: @api_client.object_to_http_body(opts[:body]))
 
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CustomersApi#post_customers\nData:#{result.inspect}"
