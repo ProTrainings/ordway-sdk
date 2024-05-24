@@ -45,10 +45,10 @@ module Ordway
       end
 
       self.customer_type = if attributes.key?(:customer_type)
-        attributes[:customer_type]
-      else
-        "business"
-      end
+                             attributes[:customer_type]
+                           else
+                             "business"
+                           end
     end
   end
 end

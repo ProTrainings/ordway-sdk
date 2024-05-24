@@ -3,13 +3,13 @@ module Ordway
     attr_accessor :scheme, :host, :base_path, :api_key, :debugging, :logger, :timeout, :api_key_prefix
 
     def initialize
-      @scheme = ENV.fetch("ORDWAY_SCHEME", nil)
-      @host = ENV.fetch("ORDWAY_HOST", nil)
-      @base_path = ENV.fetch("ORDWAY_BASE_PATH", nil)
+      @scheme = scheme
+      @host = host
+      @base_path = base_path
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0
-      @debugging = false
+      @debugging = true
       @logger = defined?(Rails) ? Rails.logger : Logger.new($stdout)
 
       yield(self) if block_given?

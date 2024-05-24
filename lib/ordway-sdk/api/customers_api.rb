@@ -14,14 +14,13 @@ module Ordway
         @api_client.config.logger.debug "Calling API: CustomersApi.get_customers ..."
       end
 
-      data, status_code, headers = @api_client.get("customers/{id}".sub("{id}", id.to_s))
+      result = @api_client.get("customers/{id}".sub("{id}", id.to_s))
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#get_customers\nData:
-          #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomersApi#get_customers\nData: #{result.inspect}"
       end
 
-      data
+      result
     end
 
     # Create Customer
@@ -31,14 +30,13 @@ module Ordway
         @api_client.config.logger.debug "Calling API: CustomersApi.post_customers ..."
       end
 
-      data, status_code, headers = @api_client.post("customers", @api_client.object_to_http_body(opts[:body]))
+      result = @api_client.post("customers", @api_client.object_to_http_body(opts[:body]))
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#post_customers\nData:
-          #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomersApi#post_customers\nData:#{result.inspect}"
       end
 
-      data
+      result
     end
   end
 end
