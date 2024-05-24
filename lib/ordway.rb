@@ -1,13 +1,13 @@
 # Common files
-require "ordway/api_client"
-require "ordway/version"
-require "ordway/configuration"
+require "ordway-sdk/api_client"
+require "ordway-sdk/version"
+require "ordway-sdk/configuration"
 
 # Models
-require "ordway/models/customer"
+require "ordway-sdk/models/customer"
 
 # APIs
-require "ordway/api/customers_api"
+require "ordway-sdk/api/customers_api"
 
 module Ordway
   class << self
