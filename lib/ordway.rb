@@ -1,6 +1,5 @@
 # Common files
 require "ordway-sdk/api_client"
-require "ordway-sdk/api_error"
 require "ordway-sdk/version"
 require "ordway-sdk/configuration"
 require "ordway-sdk/response"
@@ -12,6 +11,7 @@ require "ordway-sdk/models/customer"
 require "ordway-sdk/api/customers_api"
 
 module Ordway
+
   class << self
     def configure
       if block_given?

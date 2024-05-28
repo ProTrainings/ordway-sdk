@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://test/api/v1/customers
+    body:
+      encoding: UTF-8
+      string: '{"id":"C-1","name":"New Org","description":"New Organization","customer_type":"business"}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ordway-SDK/1/ruby
+      X-Api-Key:
+      - GfLuWN48Ir21sYnP1lgNT2dX65NY45jB5kZY7oTf
+      X-User-Company:
+      - ProTrainings
+      X-User-Email:
+      - reid.takken@protrainings.com
+      X-User-Token:
+      - Bw22q5Qdq3KXKcbCt2HL
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 28 May 2024 12:46:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Etag:
+      - W/"d1c43d4a0b75ffd9bd87030fa9501a4f"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Security-Policy:
+      - 'frame-src ''self'' https:'
+      X-Request-Id:
+      - fc8fbfe4-211b-4c92-9aa4-8b51025cfda7
+      X-Runtime:
+      - '0.313634'
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Vary:
+      - Origin
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 88ae58bc794e109d-ORD
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"name":"New Org","customer_type":"business","description":"New Organization"}'
+  recorded_at: Tue, 28 May 2024 12:46:17 GMT
+recorded_with: VCR 6.2.0

@@ -24,7 +24,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 3.3.0"
 
   s.add_runtime_dependency "addressable", "~> 2.3", ">= 2.3.0"
-  s.add_runtime_dependency "faraday", "~> 2.0"
+  s.add_runtime_dependency "faraday", "~> 2.9"
+  s.add_runtime_dependency "faraday-retry", "~> 1.0"
   s.add_runtime_dependency "json", "~> 2.1", ">= 2.1.0"
 
   s.add_development_dependency "autotest", "~> 4.4", ">= 4.4.6"

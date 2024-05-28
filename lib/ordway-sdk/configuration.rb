@@ -1,3 +1,8 @@
+require "logger"
+require "addressable"
+require "faraday/retry"
+require "faraday"
+
 module Ordway
   class Configuration
     attr_accessor :scheme, :host, :base_path, :api_key, :debugging, :logger, :timeout, :api_key_prefix
@@ -9,7 +14,7 @@ module Ordway
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0
-      @debugging = true
+      @debugging = debugging || false
       @logger = defined?(Rails) ? Rails.logger : Logger.new($stdout)
 
       yield(self) if block_given?

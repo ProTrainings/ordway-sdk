@@ -1,3 +1,6 @@
+require "faraday"
+require "logger"
+
 module Ordway
   class ApiClient
     attr_accessor :default_headers, :config
@@ -26,10 +29,10 @@ module Ordway
 
       @conn = Faraday.new(url: @config.base_url, headers: headers) do |c|
         c.response :logger,
-          Rails.logger,
-          headers: true,
-          bodies: true,
-          log_level: :debug
+          config.logger,
+          headers: false,
+          bodies: false,
+          log_level: :error
         c.adapter :net_http
         c.request :json
         c.request :retry, retry_options
@@ -42,7 +45,7 @@ module Ordway
     end
 
     def call(method, url, params: {})
-      ApiError.handle do
+      begin
         response = @conn.send(method) do |req|
           case method.to_sym
           when :get, :delete
@@ -57,14 +60,19 @@ module Ordway
           @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
         end
 
-        Response.new(true, deserialize(response))
+        return Response.new(true, deserialize(response))
+      rescue StandardError => e
+        details = JSON.parse(e.response[:body])  unless e.response[:body].empty?
       end
+
+      @config.logger.error "An error occurred: #{e.message} \n Details: #{details}"
+      Response.new(false)
     end
 
     def deserialize(response)
       body = response.body
 
-      return nil if body.blank?
+      return nil if body.empty?
 
       # ensuring a default content type
       response.headers["Content-Type"] || "application/json"

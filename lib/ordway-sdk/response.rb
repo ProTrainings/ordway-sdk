@@ -1,12 +1,14 @@
 module Ordway
   class Response
-    include ActiveModel::Model
-
     attr_reader :data
 
     def initialize(success, data = nil)
       @success = success
       @data = data
+    end
+
+    def failure?
+      !@success
     end
 
     def success?
