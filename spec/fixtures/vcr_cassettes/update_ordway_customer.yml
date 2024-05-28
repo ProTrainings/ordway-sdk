@@ -1,0 +1,77 @@
+---
+http_interactions:
+  - request:
+      method: put
+      uri: https://test/api/v1/customers/C-1
+      body:
+        encoding: UTF-8
+        string: '{"id":"C-1","name":"Testing123","description":"Testing123 Org Description New","customer_type":"business"}'
+      headers:
+        Content-Type:
+          - application/json
+        User-Agent:
+          - Ordway-SDK/1/ruby
+        X-Api-Key:
+          - GfLuWN48Ir21sYnP1lgNT2dX65NY45jB5kZY7oTf
+        X-User-Company:
+          - ProTrainings
+        X-User-Email:
+          - reid.takken@protrainings.com
+        X-User-Token:
+          - Bw22q5Qdq3KXKcbCt2HL
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 28 May 2024 19:21:48 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1; mode=block
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Etag:
+          - W/"e5d973b773657edd890a602642c5f7f5"
+        Cache-Control:
+          - max-age=0, private, must-revalidate
+        Content-Security-Policy:
+          - 'frame-src ''self'' https:'
+        X-Request-Id:
+          - 2cda9981-fc36-48b0-aaae-2f91741468ea
+        X-Runtime:
+          - '0.196202'
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Vary:
+          - Origin
+        Cf-Cache-Status:
+          - DYNAMIC
+        Server:
+          - cloudflare
+        Cf-Ray:
+          - 88b09c1e7fdf2226-ORD
+        Alt-Svc:
+          - h3=":443"; ma=86400
+      body:
+        encoding: ASCII-8BIT
+        string: '{"name":"Testing123","customer_type":"business","description":"Testing123 Org Description New"}'
+    recorded_at: Tue, 28 May 2024 19:21:48 GMT
+recorded_with: VCR 6.2.0

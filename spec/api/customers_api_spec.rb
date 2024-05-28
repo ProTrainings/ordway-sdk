@@ -38,4 +38,20 @@ describe "CustomersApi" do
       end
     end
   end
+
+  # Update Customer
+  context "update_customers test" do
+    fit "should work" do
+      VCR.use_cassette("update_ordway_customer") do
+        customer = Ordway::Customer.new(
+          name: "Testing123",
+          id: "C-1",
+          description: "Some updated description"
+        )
+        opts = { body: customer }
+        result = @instance.update_customer("C-1", opts)
+        expect(result.success?).to eql(true)
+      end
+    end
+  end
 end
