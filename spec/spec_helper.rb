@@ -13,10 +13,10 @@ RSpec.configure do |config|
     @global_config = c
   end
 
-  VCR.configure do |config|
-    config.ignore_localhost = true
-    config.allow_http_connections_when_no_cassette = true
-    config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-    config.hook_into :webmock
+  VCR.configure do |c|
+    c.ignore_localhost = true
+    c.allow_http_connections_when_no_cassette = true
+    c.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+    c.hook_into :webmock
   end
 end

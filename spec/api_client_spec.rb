@@ -6,7 +6,5 @@ describe "ApiClient" do
       client = Ordway::ApiClient.new(@global_config)
       expect(client).to be_instance_of(Ordway::ApiClient)
     end
-
-
   end
 end
