@@ -23,14 +23,14 @@ module Ordway
     # @option opts [Customer] :body
     def update_customer(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: CustomersApi.post_customers ..."
+        @api_client.config.logger.debug "Calling API: CustomersApi.update_customers ..."
       end
 
       result = @api_client.call("put", "customers/{id}".sub("{id}", params: id.to_s),
         params: @api_client.object_to_http_body(opts[:body]))
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#post_customers\nData:#{result.inspect}"
+        @api_client.config.logger.debug "API called: CustomersApi#update_customers\nData:#{result.inspect}"
       end
 
       result
