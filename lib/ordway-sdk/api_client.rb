@@ -26,10 +26,10 @@ module Ordway
 
       @conn = Faraday.new(url: @config.base_url, headers: headers) do |c|
         c.response :logger,
-                   Rails.logger,
-                   headers: true,
-                   bodies: true,
-                   log_level: :debug
+          Rails.logger,
+          headers: true,
+          bodies: true,
+          log_level: :debug
         c.adapter :net_http
         c.request :json
         c.request :retry, retry_options
@@ -82,10 +82,10 @@ module Ordway
       return model if model.nil? || model.is_a?(String)
 
       local_body = if model.is_a?(Array)
-                     model.map { |m| object_to_hash(m) }
-                   else
-                     object_to_hash(model)
-                   end
+        model.map { |m| object_to_hash(m) }
+      else
+        object_to_hash(model)
+      end
       local_body.to_json
     end
 

@@ -14,4 +14,3 @@ module Ordway
     end
   end
 end
-
