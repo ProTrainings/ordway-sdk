@@ -11,7 +11,6 @@ require "ordway-sdk/models/customer"
 require "ordway-sdk/api/customers_api"
 
 module Ordway
-
   class << self
     def configure
       if block_given?

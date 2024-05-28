@@ -62,7 +62,7 @@ module Ordway
 
         return Response.new(true, deserialize(response))
       rescue StandardError => e
-        details = JSON.parse(e.response[:body])  unless e.response[:body].empty?
+        details = JSON.parse(e.response[:body]) unless e.response[:body].empty?
       end
 
       @config.logger.error "An error occurred: #{e.message} \n Details: #{details}"
