@@ -4,21 +4,8 @@ require "date"
 module Ordway
   # Customers array.
   class Customer
-    # Unique ID identifying the Customer. Based on the document numbering setting, can be
-    # specified by the user or system will auto-generate one.
-    attr_accessor :id
-
-    # The name of the Customer to be displayed in the UI and Invoices.
-    attr_accessor :name
-
-    # Description of a business or individual.
-    attr_accessor :description
-
-    # Id of the Parent Customer account.
-    attr_accessor :parent_customer
-
-    # Can be either \"business\" or \"consumer.\" If nil, the default value is \"business.\"
-    attr_accessor :customer_type
+    attr_accessor :id, :name, :description, :parent_customer, :customer_type, :edit_auto_pay, :auto_pay, :currency,
+      :delivery_preferences, :billing_cycle_day, :bill_to_parent, :payment_terms
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
@@ -42,6 +29,34 @@ module Ordway
 
       if attributes.key?(:parent_customer)
         self.parent_customer = attributes[:parent_customer]
+      end
+
+      if attributes.key?(:edit_auto_pay)
+        self.edit_auto_pay = attributes[:edit_auto_pay]
+      end
+
+      if attributes.key?(:auto_pay)
+        self.auto_pay = attributes[:auto_pay]
+      end
+
+      if attributes.key?(:currency)
+        self.currency = attributes[:currency]
+      end
+
+      if attributes.key?(:delivery_preferences)
+        self.delivery_preferences = attributes[:delivery_preferences]
+      end
+
+      if attributes.key?(:payment_terms)
+        self.payment_terms = attributes[:payment_terms]
+      end
+
+      if attributes.key?(:billing_cycle_day)
+        self.billing_cycle_day = attributes[:billing_cycle_day]
+      end
+
+      if attributes.key?(:bill_to_parent)
+        self.bill_to_parent = attributes[:bill_to_parent]
       end
 
       self.customer_type = if attributes.key?(:customer_type)
