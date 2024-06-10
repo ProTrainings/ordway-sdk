@@ -44,7 +44,7 @@ module Ordway
       @default ||= ApiClient.new
     end
 
-    def call(method, url, params: {})
+    def call(method, url, params: {}, opts: {})
       begin
         response = @conn.send(method) do |req|
           case method.to_sym
@@ -60,7 +60,7 @@ module Ordway
           @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
         end
 
-        return Response.new(true, deserialize(response))
+        return Response.new(true, deserialize(response, opts: opts))
       rescue StandardError => e
         details = JSON.parse(e.response[:body]) unless e.response[:body].empty?
       end
@@ -69,7 +69,7 @@ module Ordway
       Response.new(false)
     end
 
-    def deserialize(response)
+    def deserialize(response, opts: {})
       body = response.body
 
       return nil if body.empty?
@@ -78,7 +78,11 @@ module Ordway
       response.headers["Content-Type"] || "application/json"
 
       begin
-        data = JSON.parse("[#{body}]", :symbolize_names => true)[0]
+        data = if opts[:return_type].present?
+          Ordway.const_get(opts[:return_type]).map(JSON.parse(body))
+        else
+          JSON.parse(body)
+        end
       rescue JSON::ParserError => e
         @config.logger.error e
       end

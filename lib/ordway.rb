@@ -6,6 +6,7 @@ require "ordway-sdk/response"
 
 # Models
 require "ordway-sdk/models/customer"
+require "ordway-sdk/models/contact"
 
 # APIs
 require "ordway-sdk/api/customers_api"
