@@ -2,7 +2,7 @@
 http_interactions:
   - request:
       method: get
-      uri: https://sandbox.ordwaylabs.com/api/v1/customers/C-1
+      uri: https://test/api/v1/customers/C-1
       body:
         encoding: US-ASCII
         string: ''

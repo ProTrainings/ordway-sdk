@@ -2,12 +2,10 @@
 http_interactions:
   - request:
       method: post
-      uri: https://sandbox.ordwaylabs.com/api/v1/customers
+      uri: https://test/api/v1/contacts
       body:
         encoding: UTF-8
-        string: '{"id":"C-3","contacts":{"display_name":""},"currency":null,"tax_exempt":false,"name":"Dis
-        a new Organization","description":"Dis a new Organization description","parent_customer":null,"edit_auto_pay":false,"auto_pay":true,"delivery_preferences":{"email":true,"print":false},"payment_terms":"Net
-        30","billing_cycle_day":"1st Day Of The Month","bill_to_parent":false,"customer_type":"business"}'
+        string: '{"customer_id":"C-1","email":null,"job_title":null,"department":null,"first_name":null,"last_name":null,"display_name":null,"phone":null}'
       headers:
         Content-Type:
           - application/json
@@ -23,7 +21,7 @@ http_interactions:
         message: OK
       headers:
         Date:
-          - Mon, 10 Jun 2024 18:25:47 GMT
+          - Mon, 10 Jun 2024 19:03:07 GMT
         Content-Type:
           - application/json; charset=utf-8
         Transfer-Encoding:
@@ -43,15 +41,15 @@ http_interactions:
         Referrer-Policy:
           - strict-origin-when-cross-origin
         Etag:
-          - W/"5359b477a20eef31a20f20cb3a42cd7c"
+          - W/"0e8349a5ee445a70ab272c3bc1f640da"
         Cache-Control:
           - max-age=0, private, must-revalidate
         Content-Security-Policy:
           - 'frame-src ''self'' https:'
         X-Request-Id:
-          - dd60608e-f20a-4ad4-adb6-73b2323d5020
+          - 4480e9e1-27da-4f51-b16c-882377f281a0
         X-Runtime:
-          - '0.299111'
+          - '0.158837'
         Strict-Transport-Security:
           - max-age=63072000; includeSubDomains
         Vary:
@@ -61,14 +59,12 @@ http_interactions:
         Server:
           - cloudflare
         Cf-Ray:
-          - 891b67ed78fb03b4-ORD
+          - 891b9e9feeb82304-ORD
         Alt-Svc:
           - h3=":443"; ma=86400
       body:
         encoding: ASCII-8BIT
-        string: '{"name":"Dis a new Organization","customer_type":"business","description":"Dis
-        a new Organization description","website":"","tax_exempt":false,"auto_pay":true,"edit_auto_pay":false,"print_preference":false,"email_preference":true,"payment_options":{},"id":"C-3","payment_terms":"Net
-        30","billing_cycle_day":"1st Day Of The Month","billing_contact_id":"CT-00093","billing_contact_email":"","shipping_contact_id":"CT-00093","shipping_contact_email":"","status":"Active","billing_batch":"Default","balance":"0.00","currency":"USD","cmrr":"0.00","discounted_cmrr":"0.00","payment_gateway_id":"","delivery_preferences":{"print":false,"email":true},"contacts":[{"id":"CT-00093","customer_id":"C-3","first_name":"","last_name":"","display_name":"Dis
-        a new Organization","email":"","phone":"","mobile":"","job_title":"","department":"","notes":"","address1":"","address2":"","city":"","state":"","zip":"","county":"","country":"","created_by":"reid.takken@protrainings.com","updated_by":"reid.takken@protrainings.com","created_date":"2024-06-10T18:25:47.273Z","updated_date":"2024-06-10T18:25:47.273Z","custom_fields":{}}],"created_by":"reid.takken@protrainings.com","updated_by":"reid.takken@protrainings.com","created_date":"2024-06-10T18:25:47.257Z","updated_date":"2024-06-10T18:25:47.257Z","custom_fields":{}}'
-    recorded_at: Mon, 10 Jun 2024 18:25:47 GMT
+        string: '{"id":"CT-00094","customer_id":"C-1","first_name":"","last_name":"","display_name":"ProTrainings
+        Marvel","email":"","phone":"","mobile":"","job_title":"","department":"","notes":"","address1":"","address2":"","city":"","state":"","zip":"","county":"","country":"","created_by":"reid.takken@protrainings.com","updated_by":"reid.takken@protrainings.com","created_date":"2024-06-10T19:03:07.628Z","updated_date":"2024-06-10T19:03:07.628Z","custom_fields":{}}'
+    recorded_at: Mon, 10 Jun 2024 19:03:07 GMT
 recorded_with: VCR 6.2.0

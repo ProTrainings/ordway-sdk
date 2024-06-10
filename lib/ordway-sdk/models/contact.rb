@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/CyclomaticComplexity
+
 module Ordway
   # Customers array.
   class Contact
@@ -65,3 +67,5 @@ module Ordway
     end
   end
 end
+
+# rubocop:enable Metrics/CyclomaticComplexity

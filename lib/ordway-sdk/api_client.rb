@@ -32,7 +32,7 @@ module Ordway
           config.logger,
           headers: false,
           bodies: false,
-          log_level: :error
+          log_level: :info
         c.adapter :net_http
         c.request :json
         c.request :retry, retry_options
@@ -70,7 +70,6 @@ module Ordway
     end
 
     def deserialize(response, opts: {})
-
       body = response.body
 
       return nil if body.empty?

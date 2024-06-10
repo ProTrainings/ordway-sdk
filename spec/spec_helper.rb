@@ -8,7 +8,7 @@ RSpec.configure do |config|
   config.before(:each) do
     c = Ordway::Configuration.new
     c.scheme = "https"
-    c.host = "sandbox.ordwaylabs.com"
+    c.host = "test"
     c.base_path = "/api/v1"
     @global_config = c
   end
