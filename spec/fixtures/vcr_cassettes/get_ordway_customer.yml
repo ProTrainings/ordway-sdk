@@ -11,14 +11,6 @@ http_interactions:
           - application/json
         User-Agent:
           - Ordway-SDK/1/ruby
-        X-Api-Key:
-          - GfLuWN48Ir21sYnP1lgNT2dX65NY45jB5kZY7oTf
-        X-User-Company:
-          - ProTrainings
-        X-User-Email:
-          - reid.takken@protrainings.com
-        X-User-Token:
-          - Bw22q5Qdq3KXKcbCt2HL
         Accept-Encoding:
           - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
         Accept:

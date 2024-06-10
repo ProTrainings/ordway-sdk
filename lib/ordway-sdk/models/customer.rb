@@ -5,7 +5,28 @@ module Ordway
   # Customers array.
   class Customer
     attr_accessor :id, :name, :description, :parent_customer, :customer_type, :edit_auto_pay, :auto_pay, :currency,
-      :delivery_preferences, :billing_cycle_day, :bill_to_parent, :payment_terms
+      :delivery_preferences, :billing_cycle_day, :bill_to_parent, :payment_terms, :tax_exempt, :billing_contact_id,
+      :contacts
+
+    def self.map(data)
+      if data.is_a?(Hash)
+        data[:contacts] = Contact.map(data["contacts"])
+        return Customer.new(data)
+      end
+
+      customers = []
+      customers << data.map do |customer_data|
+        contacts = []
+        customer_data["contacts"].map do |contact|
+          contacts << Contact.new(contact)
+        end
+        customer = Customer.new(customer_data)
+        customer.contacts = contacts
+        customer
+      end
+
+      customers
+    end
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
@@ -17,6 +38,22 @@ module Ordway
 
       if attributes.key?(:id)
         self.id = attributes[:id]
+      end
+
+      if attributes.key?(:contacts)
+        self.contacts = attributes[:contacts]
+      end
+
+      if attributes.key?(:currency)
+        self.currency = attributes[:contacts]
+      end
+
+      if attributes.key?(:billing_contact_id)
+        self.billing_contact_id = attributes[:billing_contact_id]
+      end
+
+      if attributes.key?(:tax_exempt)
+        self.tax_exempt = attributes[:tax_exempt]
       end
 
       if attributes.key?(:name)
@@ -37,10 +74,6 @@ module Ordway
 
       if attributes.key?(:auto_pay)
         self.auto_pay = attributes[:auto_pay]
-      end
-
-      if attributes.key?(:currency)
-        self.currency = attributes[:currency]
       end
 
       if attributes.key?(:delivery_preferences)
