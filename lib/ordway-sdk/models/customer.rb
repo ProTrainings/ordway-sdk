@@ -45,7 +45,7 @@ module Ordway
       end
 
       if attributes.key?(:currency)
-        self.currency = attributes[:contacts]
+        self.currency = attributes[:currency]
       end
 
       if attributes.key?(:billing_contact_id)

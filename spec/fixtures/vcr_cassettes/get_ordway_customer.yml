@@ -2,7 +2,7 @@
 http_interactions:
   - request:
       method: get
-      uri: https://test/api/v1/customers/
+      uri: https://sandbox.ordwaylabs.com/api/v1/customers/C-1
       body:
         encoding: US-ASCII
         string: ''
@@ -11,14 +11,6 @@ http_interactions:
           - application/json
         User-Agent:
           - Ordway-SDK/1/ruby
-        X-Api-Key:
-          - GfLuWN48Ir21sYnP1lgNT2dX65NY45jB5kZY7oTf
-        X-User-Company:
-          - ProTrainings
-        X-User-Email:
-          - reid.takken@protrainings.com
-        X-User-Token:
-          - Bw22q5Qdq3KXKcbCt2HL
         Accept-Encoding:
           - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
         Accept:
@@ -29,7 +21,7 @@ http_interactions:
         message: OK
       headers:
         Date:
-          - Tue, 28 May 2024 18:38:28 GMT
+          - Mon, 10 Jun 2024 18:36:25 GMT
         Content-Type:
           - application/json; charset=utf-8
         Transfer-Encoding:
@@ -49,15 +41,15 @@ http_interactions:
         Referrer-Policy:
           - strict-origin-when-cross-origin
         Etag:
-          - W/"6ea068dec005c6af81e663a059683884"
+          - W/"8370352c70295c8e31cedf65c7b4f8eb"
         Cache-Control:
           - max-age=0, private, must-revalidate
         Content-Security-Policy:
           - 'frame-src ''self'' https:'
         X-Request-Id:
-          - cda5811f-b11f-459f-9747-33ae938d94a2
+          - bb706d6c-956a-4945-a458-2e7507e4f51a
         X-Runtime:
-          - '0.098759'
+          - '0.082318'
         Strict-Transport-Security:
           - max-age=63072000; includeSubDomains
         Vary:
@@ -67,11 +59,15 @@ http_interactions:
         Server:
           - cloudflare
         Cf-Ray:
-          - 88b05ca23bd849f4-ORD
+          - 891b7784e837113c-ORD
         Alt-Svc:
           - h3=":443"; ma=86400
       body:
         encoding: ASCII-8BIT
-        string: '[{"name":"Some Company","customer_type":"business","description":"testing123"}]'
-    recorded_at: Tue, 28 May 2024 18:38:28 GMT
+        string: '{"name":"ProTrainings Marvel","customer_type":"business","description":"ProTrainings
+        Marvel Default Organization","website":"","tax_exempt":false,"auto_pay":true,"edit_auto_pay":false,"print_preference":false,"email_preference":true,"payment_options":{},"id":"C-1","payment_terms":"Net
+        30","billing_cycle_day":"1st Day Of The Month","billing_contact_id":"CT-00092","billing_contact_email":"","shipping_contact_id":"CT-00092","shipping_contact_email":"","status":"Active","billing_batch":"Default","balance":"0.00","currency":"USD","cmrr":"0.00","discounted_cmrr":"0.00","payment_gateway_id":"","delivery_preferences":{"print":false,"email":true},"contacts":[{"id":"CT-00092","customer_id":"C-1","first_name":"John","last_name":"Smith","display_name":"Here''s
+        Johnny","email":"","phone":"616-123-1234","mobile":"","job_title":"","department":"","notes":"","address1":"","address2":"","city":"","state":"","zip":"","county":"","country":"United
+        States of America","created_by":"reid.takken@protrainings.com","updated_by":"reid.takken@protrainings.com","created_date":"2024-06-10T12:40:15.413Z","updated_date":"2024-06-10T13:15:09.826Z","custom_fields":{}}],"created_by":"reid.takken@protrainings.com","updated_by":"reid.takken@protrainings.com","created_date":"2024-06-10T12:40:15.402Z","updated_date":"2024-06-10T12:40:15.402Z","custom_fields":{}}'
+    recorded_at: Mon, 10 Jun 2024 18:36:25 GMT
 recorded_with: VCR 6.2.0

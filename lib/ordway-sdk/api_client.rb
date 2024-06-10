@@ -70,6 +70,7 @@ module Ordway
     end
 
     def deserialize(response, opts: {})
+
       body = response.body
 
       return nil if body.empty?
@@ -78,7 +79,7 @@ module Ordway
       response.headers["Content-Type"] || "application/json"
 
       begin
-        data = if opts[:return_type].present?
+        data = if opts[:return_type]
           Ordway.const_get(opts[:return_type]).map(JSON.parse(body))
         else
           JSON.parse(body)

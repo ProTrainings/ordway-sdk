@@ -7,13 +7,13 @@ module Ordway
     # Get Customers
     def list
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: CustomersApi.get_customers ..."
+        @api_client.config.logger.debug "Calling API: CustomersApi.list ..."
       end
 
       result = @api_client.call("get", "customers", opts: { return_type: "Customer" })
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#get_customers\nData: #{result.inspect}"
+        @api_client.config.logger.debug "API called: CustomersApi#list\nData: #{result.inspect}"
       end
 
       result
@@ -22,13 +22,13 @@ module Ordway
     # Get Customer
     def get(id)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: CustomersApi.get_customers ..."
+        @api_client.config.logger.debug "Calling API: CustomersApi.get ..."
       end
 
       result = @api_client.call("get", "customers/#{id}", opts: { return_type: "Customer" })
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#get_customers\nData: #{result.inspect}"
+        @api_client.config.logger.debug "API called: CustomersApi#get\nData: #{result.inspect}"
       end
 
       result
@@ -36,16 +36,16 @@ module Ordway
 
     # Update Customer
     # @option opts [Customer] :body
-    def update(id, opts = {})
+    def update(id, params = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: CustomersApi.update_customers ..."
+        @api_client.config.logger.debug "Calling API: CustomersApi.update ..."
       end
 
       result = @api_client.call("put", "customers/#{id}",
-        params: @api_client.object_to_http_body(opts[:body]), opts: { return_type: "Customer" })
+        params: @api_client.object_to_http_body(params[:body]), opts: { return_type: "Customer" })
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#update_customers\nData:#{result.inspect}"
+        @api_client.config.logger.debug "API called: CustomersApi#update\nData:#{result.inspect}"
       end
 
       result
@@ -53,16 +53,16 @@ module Ordway
 
     # Create Customer
     # @option opts [Customer] :body
-    def create(opts = {})
+    def create(params = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: CustomersApi.post_customers ..."
+        @api_client.config.logger.debug "Calling API: CustomersApi.create ..."
       end
 
-      result = @api_client.call("post", "customers", params: @api_client.object_to_http_body(opts[:body]),
+      result = @api_client.call("post", "customers", params: @api_client.object_to_http_body(params[:body]),
         opts: { return_type: "Customer" })
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#post_customers\nData:#{result.inspect}"
+        @api_client.config.logger.debug "API called: CustomersApi#create\nData:#{result.inspect}"
       end
 
       result
