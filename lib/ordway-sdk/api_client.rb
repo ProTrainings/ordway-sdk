@@ -32,7 +32,7 @@ module Ordway
           config.logger,
           headers: false,
           bodies: false,
-          log_level: :error
+          log_level: :info
         c.adapter :net_http
         c.request :json
         c.request :retry, retry_options
@@ -78,7 +78,7 @@ module Ordway
       response.headers["Content-Type"] || "application/json"
 
       begin
-        data = if opts[:return_type].present?
+        data = if opts[:return_type]
           Ordway.const_get(opts[:return_type]).map(JSON.parse(body))
         else
           JSON.parse(body)

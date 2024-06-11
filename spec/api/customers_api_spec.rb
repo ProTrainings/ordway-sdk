@@ -14,42 +14,40 @@ describe "CustomersApi" do
   end
 
   # Get Customer
-  context "get_customers test" do
+  context "get test" do
     it "should work" do
       VCR.use_cassette("get_ordway_customer") do
-        result = @instance.get_customer("C-00001")
+        result = @instance.get("C-1")
         expect(result.success?).to eql(true)
       end
     end
   end
 
   # Create Customer
-  context "create_customers test" do
+  context "create test" do
     it "should work" do
       VCR.use_cassette("create_ordway_customer") do
-        ordway_customer = Ordway::Customer.new(
+        customer = Ordway::Customer.new(
           name: "Testing123",
           id: "C-1",
           description: "Some new org"
         )
-        opts = { body: ordway_customer }
-        result = @instance.post_customer(opts)
+        result = @instance.create({ body: customer })
         expect(result.success?).to eql(true)
       end
     end
   end
 
   # Update Customer
-  context "update_customers test" do
-    fit "should work" do
+  context "update test" do
+    it "should work" do
       VCR.use_cassette("update_ordway_customer") do
         customer = Ordway::Customer.new(
           name: "Testing123",
           id: "C-1",
           description: "Some updated description"
         )
-        opts = { body: customer }
-        result = @instance.update_customer("C-1", opts)
+        result = @instance.update("C-1", { body: customer })
         expect(result.success?).to eql(true)
       end
     end
