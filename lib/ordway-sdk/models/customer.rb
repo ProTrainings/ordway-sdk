@@ -6,7 +6,7 @@ module Ordway
   class Customer
     attr_accessor :id, :name, :description, :parent_customer, :customer_type, :edit_auto_pay, :auto_pay, :currency,
       :delivery_preferences, :billing_cycle_day, :bill_to_parent, :payment_terms, :tax_exempt, :billing_contact_id,
-      :contacts
+      :contacts, :payment_options
 
     def self.map(data)
       if data.is_a?(Hash)
@@ -78,6 +78,10 @@ module Ordway
 
       if attributes.key?(:delivery_preferences)
         self.delivery_preferences = attributes[:delivery_preferences]
+      end
+
+      if attributes.key?(:payment_options)
+        self.payment_options = attributes[:payment_options]
       end
 
       if attributes.key?(:payment_terms)
