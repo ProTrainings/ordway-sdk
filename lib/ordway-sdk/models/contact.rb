@@ -10,7 +10,8 @@ module Ordway
       :job_title,
       :email,
       :customer_id,
-      :id, :name, :first_name, :last_name
+      :id, :name, :first_name, :last_name,
+      :address1, :address2, :city, :state, :zip, :county, :country
 
     def self.map(data)
       return Contact.new(data) if data.is_a?(Hash)
@@ -63,6 +64,28 @@ module Ordway
 
       if attributes.key?(:mobile)
         self.mobile = attributes[:mobile]
+      end
+
+      if attributes.key?(:address1)
+        self.address1 = attributes[:address1]
+      end
+      if attributes.key?(:address2)
+        self.address2 = attributes[:address2]
+      end
+      if attributes.key?(:state)
+        self.state =  attributes[:state]
+      end
+      if attributes.key?(:city)
+        self.city =  attributes[:city]
+      end
+      if attributes.key?(:zip)
+        self.zip =  attributes[:zip]
+      end
+      if attributes.key?(:county)
+        self.county = attributes[:county]
+      end
+      if attributes.key?(:country)
+        self.country = attributes[:country]
       end
     end
   end
