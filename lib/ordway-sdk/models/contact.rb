@@ -76,7 +76,7 @@ module Ordway
         self.state =  attributes[:state]
       end
       if attributes.key?(:city)
-        self.city =  attributes[:city]
+        self.city = attributes[:city]
       end
       if attributes.key?(:zip)
         self.zip =  attributes[:zip]

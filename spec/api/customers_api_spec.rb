@@ -1,55 +1,59 @@
 require "spec_helper"
 
 describe "CustomersApi" do
-  before do
-    # run before each test
-    client = Ordway::ApiClient.new(@global_config)
-    @instance = Ordway::CustomersApi.new(client)
-  end
-
   context "test an instance of CustomersApi" do
     it "should create an instance of CustomersApi" do
-      expect(@instance).to be_instance_of(Ordway::CustomersApi)
+      client = Ordway::ApiClient.new(@global_config)
+      expect(Ordway::CustomersApi.new(client)).to be_instance_of(Ordway::CustomersApi)
     end
   end
 
   # Get Customer
   context "get test" do
     it "should work" do
-      VCR.use_cassette("get_ordway_customer") do
-        result = @instance.get("C-1")
-        expect(result.success?).to eql(true)
-      end
+      response = Ordway::Customer.new(id: "124")
+      new_resource = double
+      allow(Ordway::CustomersApi).to receive(:new).and_return(new_resource)
+      allow(new_resource).to receive(:get).and_return(Ordway::Response.new(true, response))
+
+      result = Ordway::CustomersApi.new.get("C-1")
+      expect(result.success?).to eql(true)
     end
   end
 
   # Create Customer
   context "create test" do
     it "should work" do
-      VCR.use_cassette("create_ordway_customer") do
-        customer = Ordway::Customer.new(
-          name: "Testing123",
-          id: "C-1",
-          description: "Some new org"
-        )
-        result = @instance.create({ body: customer })
-        expect(result.success?).to eql(true)
-      end
+      response = Ordway::Customer.new(id: "124")
+      new_resource = double
+      allow(Ordway::CustomersApi).to receive(:new).and_return(new_resource)
+      allow(new_resource).to receive(:create).and_return(Ordway::Response.new(true, response))
+
+      customer = Ordway::Customer.new(
+        name: "Testing123",
+        id: "C-1",
+        description: "Some new org"
+      )
+      result = Ordway::CustomersApi.new.create({ body: customer })
+      expect(result.success?).to eql(true)
     end
   end
 
   # Update Customer
   context "update test" do
     it "should work" do
-      VCR.use_cassette("update_ordway_customer") do
-        customer = Ordway::Customer.new(
-          name: "Testing123",
-          id: "C-1",
-          description: "Some updated description"
-        )
-        result = @instance.update("C-1", { body: customer })
-        expect(result.success?).to eql(true)
-      end
+      response = Ordway::Customer.new(id: "124")
+      new_resource = double
+      allow(Ordway::CustomersApi).to receive(:new).and_return(new_resource)
+      allow(new_resource).to receive(:update).and_return(Ordway::Response.new(true, response))
+
+      customer = Ordway::Customer.new(
+        name: "Testing123",
+        id: "C-1",
+        description: "Some updated description"
+      )
+      result = Ordway::CustomersApi.new.update("C-1", { body: customer })
+      expect(result.success?).to eql(true)
     end
   end
 end

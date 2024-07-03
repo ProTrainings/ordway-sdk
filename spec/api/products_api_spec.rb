@@ -1,26 +1,23 @@
 require "spec_helper"
 
-describe "ContactsApi" do
-  context "test an instance of ContactsApi" do
-    it "should create an instance of ContactsApi" do
+describe "ProductsApi" do
+  context "test an instance of ProductsApi" do
+    it "should create an instance of ProductsApi" do
       client = Ordway::ApiClient.new(@global_config)
-      expect(Ordway::ContactsApi.new(client)).to be_instance_of(Ordway::ContactsApi)
+      expect(Ordway::ProductsApi.new(client)).to be_instance_of(Ordway::ProductsApi)
     end
   end
 
   # Create Contact
   context "create test" do
     it "should work" do
-      response = Ordway::Contact.new(
-        id: "124",
-        display_name: "abc"
-      )
+      response = Ordway::Product.new(id: "124")
       new_resource = double
-      allow(Ordway::ContactsApi).to receive(:new).and_return(new_resource)
+      allow(Ordway::ProductsApi).to receive(:new).and_return(new_resource)
       allow(new_resource).to receive(:create).and_return(Ordway::Response.new(true, response))
 
-      contact = Ordway::Contact.new(display_name: "Testing123")
-      result = Ordway::ContactsApi.new.create({ body: contact })
+      contact = Ordway::Product.new(name: "test")
+      result = Ordway::ProductsApi.new.create({ body: contact })
       expect(result.success?).to eql(true)
     end
   end
@@ -28,17 +25,14 @@ describe "ContactsApi" do
   # Update Customer
   context "update test" do
     it "should work" do
-      response = Ordway::Contact.new(
-        id: "124",
-        display_name: "abc"
-      )
+      response = Ordway::Product.new(id: "124")
       new_resource = double
-      allow(Ordway::ContactsApi).to receive(:new).and_return(new_resource)
+      allow(Ordway::ProductsApi).to receive(:new).and_return(new_resource)
       allow(new_resource).to receive(:update).and_return(Ordway::Response.new(true, response))
 
-      contact = Ordway::Contact.new(display_name: "Testing123")
+      contact = Ordway::Product.new(name: "Testing123")
 
-      result = Ordway::ContactsApi.new.update("CT-90", { body: contact })
+      result = Ordway::ProductsApi.new.update("CT-90", { body: contact })
       expect(result.success?).to eql(true)
     end
   end

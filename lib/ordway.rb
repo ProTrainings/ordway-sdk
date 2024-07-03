@@ -7,10 +7,12 @@ require "ordway-sdk/response"
 # Models
 require "ordway-sdk/models/customer"
 require "ordway-sdk/models/contact"
+require "ordway-sdk/models/product"
 
 # APIs
 require "ordway-sdk/api/customers_api"
 require "ordway-sdk/api/contacts_api"
+require "ordway-sdk/api/products_api"
 
 module Ordway
   class << self
