@@ -8,6 +8,7 @@ require "ordway-sdk/response"
 require "ordway-sdk/models/customer"
 require "ordway-sdk/models/contact"
 require "ordway-sdk/models/product"
+require "ordway-sdk/models/transaction_type"
 
 # APIs
 require "ordway-sdk/api/customers_api"
