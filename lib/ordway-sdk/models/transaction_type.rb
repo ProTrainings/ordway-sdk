@@ -1,15 +1,9 @@
-# rubocop:disable Metrics/CyclomaticComplexity
 module Ordway
   # TransactionType array.
   class TransactionType
-    # Type of transaction for posting journal entries. Types of transactions include Orders/Contracts, Invoice Posting, and Revenue Schedule.
-    attr_accessor :transaction_type
-
-    # Debit Account id for the Journal Entry.
-    attr_accessor :debit_account
-
-    # Credit Account id for the Journal Entry.
-    attr_accessor :credit_account
+    # Type of transaction for posting journal entries.
+    # Types of transactions include Orders/Contracts, Invoice Posting, and Revenue Schedule.
+    attr_accessor :transaction_type, :debit_account, :credit_account
 
     def self.map(data)
       return TransactionType.new(data) if data.is_a?(TransactionType)
@@ -38,4 +32,3 @@ module Ordway
     end
   end
 end
-# rubocop:enable Metrics/CyclomaticComplexity

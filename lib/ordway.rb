@@ -9,11 +9,15 @@ require "ordway-sdk/models/customer"
 require "ordway-sdk/models/contact"
 require "ordway-sdk/models/product"
 require "ordway-sdk/models/transaction_type"
+require "ordway-sdk/models/plan"
+require "ordway-sdk/models/charge"
 
 # APIs
 require "ordway-sdk/api/customers_api"
 require "ordway-sdk/api/contacts_api"
 require "ordway-sdk/api/products_api"
+require "ordway-sdk/api/plans_api"
+require "ordway-sdk/api/charges_api"
 
 module Ordway
   class << self
