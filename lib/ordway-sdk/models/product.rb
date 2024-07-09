@@ -5,6 +5,27 @@ module Ordway
     attr_accessor :id, :name, :status, :taxable, :price, :revenue_rule_id, :recognition_start_date,
       :transaction_posting_entries
 
+
+    def self.map(data)
+      if data.is_a?(Hash)
+        data[:transaction_posting_entries] = TransactionType.map(data["transaction_posting_entries"])
+        return Product.new(data)
+      end
+
+      products = []
+      products << data.map do |product_data|
+        transaction_posting_entries = []
+        product_data["transaction_posting_entries"].map do |transaction_posting_entry|
+          transaction_posting_entries << TransactionType.new(transaction_posting_entry)
+        end
+        product = Product.new(product_data)
+        product.transaction_posting_entries = transaction_posting_entries
+        product
+      end
+
+      products
+    end
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -44,8 +65,6 @@ module Ordway
 
       self.revenue_rule_id = if attributes.key?(:revenue_rule_id)
         attributes[:revenue_rule_id]
-      else
-        "revenue_rule_id associate with ‘Recognize on Invoicing’ method"
       end
 
       # default is invoice date
@@ -55,9 +74,8 @@ module Ordway
         "Invoice Date"
       end
 
-      if attributes.key?(:transaction_posting_entries) &&
-         (value = attributes[:transaction_posting_entries]).is_a?(Array)
-        self.transaction_posting_entries = value
+      if attributes.key?(:transaction_posting_entries)
+        self.transaction_posting_entries = attributes[:transaction_posting_entries]
       end
     end
   end

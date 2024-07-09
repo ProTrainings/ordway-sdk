@@ -21,6 +21,21 @@ module Ordway
       result
     end
 
+    # Get Product
+    def get(id)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ProductsApi.get ..."
+      end
+
+      result = @api_client.call("get", "products/#{id}", opts: { return_type: "Product" })
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#get\nData: #{result.inspect}"
+      end
+
+      result
+    end
+
     # Update Product
     # @option opts [Product] :body
     def update(id, params = {})
