@@ -8,32 +8,50 @@ describe "ProductsApi" do
     end
   end
 
-  # Create Contact
-  context "create test" do
-    it "should work" do
-      response = Ordway::Product.new(id: "124")
-      new_resource = double
-      allow(Ordway::ProductsApi).to receive(:new).and_return(new_resource)
-      allow(new_resource).to receive(:create).and_return(Ordway::Response.new(true, response))
+  # List Product
+  it "list" do
+    response = [Ordway::Product.new(id: "124")]
+    new_resource = double
+    allow(Ordway::ProductsApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:list).and_return(Ordway::Response.new(true, response))
 
-      contact = Ordway::Product.new(name: "test")
-      result = Ordway::ProductsApi.new.create({ body: contact })
-      expect(result.success?).to eql(true)
-    end
+    result = Ordway::ProductsApi.new.list
+    expect(result.success?).to eql(true)
+  end
+
+  # Get Product
+  it "get" do
+    response = Ordway::Product.new(id: "124")
+    new_resource = double
+    allow(Ordway::ProductsApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:get).and_return(Ordway::Response.new(true, response))
+
+    result = Ordway::ProductsApi.new.get("C-1")
+    expect(result.success?).to eql(true)
+  end
+
+  # Create Contact
+  it "create" do
+    response = Ordway::Product.new(id: "124")
+    new_resource = double
+    allow(Ordway::ProductsApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:create).and_return(Ordway::Response.new(true, response))
+
+    contact = Ordway::Product.new(name: "test")
+    result = Ordway::ProductsApi.new.create({ body: contact })
+    expect(result.success?).to eql(true)
   end
 
   # Update Customer
-  context "update test" do
-    it "should work" do
-      response = Ordway::Product.new(id: "124")
-      new_resource = double
-      allow(Ordway::ProductsApi).to receive(:new).and_return(new_resource)
-      allow(new_resource).to receive(:update).and_return(Ordway::Response.new(true, response))
+  it "update" do
+    response = Ordway::Product.new(id: "124")
+    new_resource = double
+    allow(Ordway::ProductsApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:update).and_return(Ordway::Response.new(true, response))
 
-      contact = Ordway::Product.new(name: "Testing123")
+    contact = Ordway::Product.new(name: "Testing123")
 
-      result = Ordway::ProductsApi.new.update("CT-90", { body: contact })
-      expect(result.success?).to eql(true)
-    end
+    result = Ordway::ProductsApi.new.update("CT-90", { body: contact })
+    expect(result.success?).to eql(true)
   end
 end

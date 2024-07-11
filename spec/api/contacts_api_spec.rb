@@ -9,37 +9,34 @@ describe "ContactsApi" do
   end
 
   # Create Contact
-  context "create test" do
-    it "should work" do
-      response = Ordway::Contact.new(
-        id: "124",
-        display_name: "abc"
-      )
-      new_resource = double
-      allow(Ordway::ContactsApi).to receive(:new).and_return(new_resource)
-      allow(new_resource).to receive(:create).and_return(Ordway::Response.new(true, response))
+  it "create" do
+    response = Ordway::Contact.new(
+      id: "124",
+      display_name: "abc"
+    )
+    new_resource = double
+    allow(Ordway::ContactsApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:create).and_return(Ordway::Response.new(true, response))
 
-      contact = Ordway::Contact.new(display_name: "Testing123")
-      result = Ordway::ContactsApi.new.create({ body: contact })
-      expect(result.success?).to eql(true)
-    end
+    contact = Ordway::Contact.new(display_name: "Testing123")
+    result = Ordway::ContactsApi.new.create({ body: contact })
+    expect(result.success?).to eql(true)
   end
 
   # Update Customer
-  context "update test" do
-    it "should work" do
-      response = Ordway::Contact.new(
-        id: "124",
-        display_name: "abc"
-      )
-      new_resource = double
-      allow(Ordway::ContactsApi).to receive(:new).and_return(new_resource)
-      allow(new_resource).to receive(:update).and_return(Ordway::Response.new(true, response))
 
-      contact = Ordway::Contact.new(display_name: "Testing123")
+  it "update" do
+    response = Ordway::Contact.new(
+      id: "124",
+      display_name: "abc"
+    )
+    new_resource = double
+    allow(Ordway::ContactsApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:update).and_return(Ordway::Response.new(true, response))
 
-      result = Ordway::ContactsApi.new.update("CT-90", { body: contact })
-      expect(result.success?).to eql(true)
-    end
+    contact = Ordway::Contact.new(display_name: "Testing123")
+
+    result = Ordway::ContactsApi.new.update("CT-90", { body: contact })
+    expect(result.success?).to eql(true)
   end
 end

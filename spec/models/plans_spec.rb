@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Product" do
+describe "Plan" do
   context "test an instance of Plan" do
     it "should create an instance of Plan" do
       plan = Ordway::Plan.new

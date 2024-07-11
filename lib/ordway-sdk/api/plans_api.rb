@@ -4,6 +4,21 @@ module Ordway
       @api_client = api_client
     end
 
+    # Get plans
+    def list
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PlansApi.list ..."
+      end
+
+      result = @api_client.call("get", "plans", opts: { return_type: "Plan" })
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PlansApi#list\nData: #{result.inspect}"
+      end
+
+      result
+    end
+
     # Create Plan
     # @option opts [Plan] :body
     def create(params = {})

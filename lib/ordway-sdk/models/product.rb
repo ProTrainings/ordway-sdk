@@ -2,27 +2,30 @@
 module Ordway
   # Products array.
   class Product
-    attr_accessor :id, :name, :status, :taxable, :price, :revenue_rule_id, :recognition_start_date,
+    attr_accessor :id,
+      :name,
+      :status,
+      :taxable,
+      :price,
+      :revenue_rule_id,
+      :recognition_start_date,
       :transaction_posting_entries
 
     def self.map(data)
       if data.is_a?(Hash)
+        map_product(data)
+      end
+
+      data.map do |product_data|
+        map_product(product_data)
+      end
+    end
+
+    def self.map_product(data)
+      if data["transaction_posting_entries"].present?
         data[:transaction_posting_entries] = TransactionType.map(data["transaction_posting_entries"])
-        return Product.new(data)
       end
-
-      products = []
-      products << data.map do |product_data|
-        transaction_posting_entries = []
-        product_data["transaction_posting_entries"].map do |transaction_posting_entry|
-          transaction_posting_entries << TransactionType.new(transaction_posting_entry)
-        end
-        product = Product.new(product_data)
-        product.transaction_posting_entries = transaction_posting_entries
-        product
-      end
-
-      products
+      Product.new(data)
     end
 
     # Initializes the object

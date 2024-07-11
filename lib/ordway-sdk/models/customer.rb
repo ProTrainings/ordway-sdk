@@ -4,28 +4,36 @@ require "date"
 module Ordway
   # Customers array.
   class Customer
-    attr_accessor :id, :name, :description, :parent_customer, :customer_type, :edit_auto_pay, :auto_pay, :currency,
-      :delivery_preferences, :billing_cycle_day, :bill_to_parent, :payment_terms, :tax_exempt, :billing_contact_id,
-      :contacts, :payment_options
+    attr_accessor :id,
+      :name,
+      :description,
+      :parent_customer,
+      :customer_type,
+      :edit_auto_pay,
+      :auto_pay,
+      :currency,
+      :delivery_preferences,
+      :billing_cycle_day,
+      :bill_to_parent,
+      :payment_terms,
+      :tax_exempt,
+      :billing_contact_id,
+      :contacts,
+      :payment_options
 
     def self.map(data)
       if data.is_a?(Hash)
-        data[:contacts] = Contact.map(data["contacts"])
-        return Customer.new(data)
+        map_customer(data)
       end
 
-      customers = []
-      customers << data.map do |customer_data|
-        contacts = []
-        customer_data["contacts"].map do |contact|
-          contacts << Contact.new(contact)
-        end
-        customer = Customer.new(customer_data)
-        customer.contacts = contacts
-        customer
+      data.map do |customer_data|
+        map_customer(customer_data)
       end
+    end
 
-      customers
+    def self.map_customer(data)
+      data[:contacts] = Contact.map(data["contacts"]) if data["contacts"].present?
+      Customer.new(data)
     end
 
     # Initializes the object

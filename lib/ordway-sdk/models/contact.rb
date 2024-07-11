@@ -10,15 +10,28 @@ module Ordway
       :job_title,
       :email,
       :customer_id,
-      :id, :name, :first_name, :last_name,
-      :address1, :address2, :city, :state, :zip, :county, :country
+      :id,
+      :name,
+      :first_name,
+      :last_name,
+      :address1,
+      :address2,
+      :city,
+      :state,
+      :zip,
+      :county,
+      :country
 
     def self.map(data)
-      return Contact.new(data) if data.is_a?(Hash)
+      return map_contact(data) if data.is_a?(Hash)
 
       data.map do |contact_data|
-        Contact.new(contact_data)
+        map_contact(contact_data)
       end
+    end
+
+    def self.map_contact(data)
+      Contact.new(data)
     end
 
     def initialize(attributes = {})

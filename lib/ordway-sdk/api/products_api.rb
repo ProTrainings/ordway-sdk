@@ -52,5 +52,20 @@ module Ordway
 
       result
     end
+
+    # Get Products
+    def list
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ProductsApi.list ..."
+      end
+
+      result = @api_client.call("get", "products", opts: { return_type: "Product" })
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ProductsApi#list\nData: #{result.inspect}"
+      end
+
+      result
+    end
   end
 end

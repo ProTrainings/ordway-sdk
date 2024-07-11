@@ -3,32 +3,59 @@
 module Ordway
   # Charge
   class Charge
-    attr_accessor :id, :product_id, :name, :description, :type, :transaction_posting_entries,
-      :recognition_start_date, :tiers, :revenue_rule_id, :default_from_product, :refund_units_on_cancel,
-      :prepaid_units_expiry, :refill_prepaid_units_for, :refill_qty, :auto_refill_prepayment_units,
-      :prepaid_units_enable, :custom_fields, :backcharge_current_period, :unused_prepayment_units,
-      :included_units, :unit_of_measure, :prepayment_amount, :prepayment_periods, :prorate_partial_periods,
-      :billing_period_start_alignment, :billing_day, :billing_period, :list_price_base, :charge_timing,
-      :list_price, :pricing_model, :completion_date, :billing_date, :effective_date, :timing, :type
+    attr_accessor :id,
+      :product_id,
+      :name,
+      :description,
+      :type,
+      :transaction_posting_entries,
+      :recognition_start_date,
+      :tiers,
+      :revenue_rule_id,
+      :default_from_product,
+      :refund_units_on_cancel,
+      :prepaid_units_expiry,
+      :refill_prepaid_units_for,
+      :refill_qty,
+      :auto_refill_prepayment_units,
+      :prepaid_units_enable,
+      :custom_fields,
+      :backcharge_current_period,
+      :unused_prepayment_units,
+      :included_units,
+      :unit_of_measure,
+      :prepayment_amount,
+      :prepayment_periods,
+      :prorate_partial_periods,
+      :billing_period_start_alignment,
+      :billing_day,
+      :billing_period,
+      :list_price_base,
+      :charge_timing,
+      :list_price,
+      :pricing_model,
+      :completion_date,
+      :billing_date,
+      :effective_date,
+      :timing,
+      :type
 
     def self.map(data)
       if data.is_a?(Hash)
+        map_charge(data)
+      end
+
+      data.map do |charge_data|
+        map_charge(charge_data)
+      end
+    end
+
+    def self.map_charge(data)
+      data[:tiers] = Tier.map(data["tiers"]) if data["tiers"].present?
+      if data["transaction_posting_entries"].present?
         data[:transaction_posting_entries] = TransactionType.map(data["transaction_posting_entries"])
-        return Charge.new(data)
       end
-
-      charges = []
-      charges << data.map do |charge_data|
-        transaction_posting_entries = []
-        charge_data["transaction_posting_entries"].map do |transaction_posting_entry|
-          transaction_posting_entries << TransactionType.new(transaction_posting_entry)
-        end
-        charge = Charge.new(charge_data)
-        charge.transaction_posting_entries = transaction_posting_entries
-        charge
-      end
-
-      charges
+      Charge.new(data)
     end
 
     def initialize(attributes = {})

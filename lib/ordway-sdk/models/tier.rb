@@ -1,7 +1,25 @@
 # rubocop:disable Metrics/CyclomaticComplexity
 module Ordway
   class Tier
-    attr_accessor :tier, :starting_unit, :ending_unit, :price, :type
+    attr_accessor :tier,
+      :starting_unit,
+      :ending_unit,
+      :price,
+      :type
+
+    def self.map(data)
+      if data.is_a?(Hash)
+        map_tier(data)
+      end
+
+      data.map do |charge_data|
+        map_tier(charge_data)
+      end
+    end
+
+    def self.map_tier(data)
+      Tier.new(data)
+    end
 
     def initialize(attributes = {})
       return unless attributes.is_a?(Hash)

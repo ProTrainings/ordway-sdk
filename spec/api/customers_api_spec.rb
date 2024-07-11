@@ -8,52 +8,57 @@ describe "CustomersApi" do
     end
   end
 
-  # Get Customer
-  context "get test" do
-    it "should work" do
-      response = Ordway::Customer.new(id: "124")
-      new_resource = double
-      allow(Ordway::CustomersApi).to receive(:new).and_return(new_resource)
-      allow(new_resource).to receive(:get).and_return(Ordway::Response.new(true, response))
+  # List Customer
+  it "list" do
+    response = [Ordway::Customer.new(id: "124")]
+    new_resource = double
+    allow(Ordway::CustomersApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:list).and_return(Ordway::Response.new(true, response))
 
-      result = Ordway::CustomersApi.new.get("C-1")
-      expect(result.success?).to eql(true)
-    end
+    result = Ordway::CustomersApi.new.list
+    expect(result.success?).to eql(true)
+  end
+
+  # Get Customer
+  it "get" do
+    response = Ordway::Customer.new(id: "124")
+    new_resource = double
+    allow(Ordway::CustomersApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:get).and_return(Ordway::Response.new(true, response))
+
+    result = Ordway::CustomersApi.new.get("C-1")
+    expect(result.success?).to eql(true)
   end
 
   # Create Customer
-  context "create test" do
-    it "should work" do
-      response = Ordway::Customer.new(id: "124")
-      new_resource = double
-      allow(Ordway::CustomersApi).to receive(:new).and_return(new_resource)
-      allow(new_resource).to receive(:create).and_return(Ordway::Response.new(true, response))
+  it "create" do
+    response = Ordway::Customer.new(id: "124")
+    new_resource = double
+    allow(Ordway::CustomersApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:create).and_return(Ordway::Response.new(true, response))
 
-      customer = Ordway::Customer.new(
-        name: "Testing123",
-        id: "C-1",
-        description: "Some new org"
-      )
-      result = Ordway::CustomersApi.new.create({ body: customer })
-      expect(result.success?).to eql(true)
-    end
+    customer = Ordway::Customer.new(
+      name: "Testing123",
+      id: "C-1",
+      description: "Some new org"
+    )
+    result = Ordway::CustomersApi.new.create({ body: customer })
+    expect(result.success?).to eql(true)
   end
 
   # Update Customer
-  context "update test" do
-    it "should work" do
-      response = Ordway::Customer.new(id: "124")
-      new_resource = double
-      allow(Ordway::CustomersApi).to receive(:new).and_return(new_resource)
-      allow(new_resource).to receive(:update).and_return(Ordway::Response.new(true, response))
+  it "update" do
+    response = Ordway::Customer.new(id: "124")
+    new_resource = double
+    allow(Ordway::CustomersApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:update).and_return(Ordway::Response.new(true, response))
 
-      customer = Ordway::Customer.new(
-        name: "Testing123",
-        id: "C-1",
-        description: "Some updated description"
-      )
-      result = Ordway::CustomersApi.new.update("C-1", { body: customer })
-      expect(result.success?).to eql(true)
-    end
+    customer = Ordway::Customer.new(
+      name: "Testing123",
+      id: "C-1",
+      description: "Some updated description"
+    )
+    result = Ordway::CustomersApi.new.update("C-1", { body: customer })
+    expect(result.success?).to eql(true)
   end
 end

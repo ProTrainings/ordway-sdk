@@ -3,14 +3,20 @@ module Ordway
   class TransactionType
     # Type of transaction for posting journal entries.
     # Types of transactions include Orders/Contracts, Invoice Posting, and Revenue Schedule.
-    attr_accessor :transaction_type, :debit_account, :credit_account
+    attr_accessor :transaction_type,
+      :debit_account,
+      :credit_account
 
     def self.map(data)
-      return TransactionType.new(data) if data.is_a?(TransactionType)
+      return map_transaction_type(data) if data.is_a?(TransactionType)
 
       data.map do |transaction_type_data|
-        TransactionType.new(transaction_type_data)
+        map_transaction_type(transaction_type_data)
       end
+    end
+
+    def self.map_transaction_type(data)
+      TransactionType.new(data)
     end
 
     def initialize(attributes = {})

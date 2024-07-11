@@ -21,6 +21,21 @@ module Ordway
       result
     end
 
+    # List Charges
+    def list(plan_id)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ChargesApi.list ..."
+      end
+
+      result = @api_client.call("get", "plans/#{plan_id}/charges", opts: { return_type: "Charge" })
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ChargesApi#list\nData: #{result.inspect}"
+      end
+
+      result
+    end
+
     # Get Charge
     def get(plan_id, id)
       if @api_client.config.debugging
