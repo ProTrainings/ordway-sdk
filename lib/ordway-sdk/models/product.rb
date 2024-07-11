@@ -5,7 +5,6 @@ module Ordway
     attr_accessor :id, :name, :status, :taxable, :price, :revenue_rule_id, :recognition_start_date,
       :transaction_posting_entries
 
-
     def self.map(data)
       if data.is_a?(Hash)
         data[:transaction_posting_entries] = TransactionType.map(data["transaction_posting_entries"])
