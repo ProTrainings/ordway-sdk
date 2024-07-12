@@ -13,7 +13,7 @@ module Ordway
 
     def self.map(data)
       if data.is_a?(Hash)
-        map_product(data)
+        return map_product(data)
       end
 
       data.map do |product_data|

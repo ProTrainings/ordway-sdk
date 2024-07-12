@@ -34,11 +34,12 @@ module Ordway
       :updated_by,
       :custom_fields,
       :tcv,
-      :defer_start_date
+      :defer_start_date,
+      :billing_period
 
     def self.map(data)
       if data.is_a?(Hash)
-        map_subscription(data)
+        return map_subscription(data)
       end
 
       data.map do |subscription_data|
@@ -58,6 +59,9 @@ module Ordway
 
       if attributes.key?(:id)
         self.id = attributes[:id]
+      end
+      if attributes.key?(:billing_period)
+        self.billing_period = attributes[:billing_period]
       end
       if attributes.key?(:customer_id)
         self.customer_id = attributes[:customer_id]

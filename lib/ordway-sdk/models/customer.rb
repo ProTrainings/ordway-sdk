@@ -23,7 +23,7 @@ module Ordway
 
     def self.map(data)
       if data.is_a?(Hash)
-        map_customer(data)
+        return map_customer(data)
       end
 
       data.map do |customer_data|

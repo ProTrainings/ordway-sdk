@@ -9,7 +9,7 @@ module Ordway
 
     def self.map(data)
       if data.is_a?(Hash)
-        map_tier(data)
+        return map_tier(data)
       end
 
       data.map do |charge_data|

@@ -57,7 +57,7 @@ module Ordway
 
     def self.map(data)
       if data.is_a?(Hash)
-        map_plan(data)
+        return map_plan(data)
       end
 
       data.map do |plan_data|
