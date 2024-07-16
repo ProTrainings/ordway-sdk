@@ -1,0 +1,27 @@
+{
+  "id": "CT-0000882",
+  "customer_id": "C-0000002",
+  "first_name": "Jim",
+  "last_name": "Bob",
+  "display_name": "Jim Bob",
+  "email": "jim@bob.com",
+  "phone": "233-222-1111",
+  "mobile": "233-222-1111",
+  "job_title": "Accounts Manager",
+  "department": "Accounting",
+  "notes": "",
+  "address1": "1 Awesome Street",
+  "address2": "",
+  "city": "Baltimore",
+  "state": "MD",
+  "zip": "21202",
+  "country": "United States",
+  "created_by": "sg@ordwaylabs.com",
+  "updated_by": "sg@ordwaylabs.com",
+  "created_date": "2017-01-11T00:00:00.000Z",
+  "updated_date": "2017-01-28T19:29:09.025Z",
+  "custom_fields": {
+    "custom_field1": "field_value1",
+    "custom_field2": "field_value2"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "id": "S-00006",
+  "customer_id": "C-00002",
+  "status": "Draft",
+  "contract_effective_date": "2017-01-24",
+  "billing_start_date": "2017-02-23",
+  "service_start_date": "2017-01-24",
+  "order_placed_at": "2017-01-24",
+  "cancellation_date": "2017-01-24",
+  "auto_renew": true,
+  "currency": "USD",
+  "notes": "",
+  "version": 1,
+  "contract_term": "12",
+  "renewal_term": "12",
+  "renewal_increment_percent": 0,
+  "plans": [
+    {
+      "product_id": "P-00001",
+      "product_name": "Sample Product",
+      "plan_id": "PLN-00001",
+      "plan_name": "Bronze Plan",
+      "charge_id": "CHG-00001",
+      "charge_name": "Setup Fee",
+      "list_price": "100000",
+      "price_base": "",
+      "quantity": 1,
+      "included_units": 0,
+      "discount": 0,
+      "effective_price": "100000",
+      "type": "One time",
+      "custom_fields": {
+        "custom_field1": "field_value1",
+        "custom_field2": "field_value2"
+      }
+    },
+    {
+      "product_id": "P-00001",
+      "product_name": "Sample Product",
+      "plan_id": "PLN-00001",
+      "plan_name": "Bronze Plan",
+      "charge_id": "CHG-00002",
+      "charge_name": "Monthly Fee",
+      "list_price": "10000",
+      "price_base": "",
+      "quantity": 1,
+      "included_units": 0,
+      "discount": 0,
+      "effective_price": "10000",
+      "type": "Recurring",
+      "billing_period": "Monthly",
+      "renewal_increment_percent": 0,
+      "override_renewal_increment_percent": false
+    },
+    {
+      "product_id": "P-00001",
+      "product_name": "Sample Product",
+      "plan_id": "PLN-00001",
+      "plan_name": "Bronze Plan",
+      "charge_id": "CHG-00003",
+      "charge_name": "Minutes Used",
+      "list_price": "15",
+      "price_base": "",
+      "quantity": 1,
+      "included_units": 100,
+      "discount": 0,
+      "effective_price": "15",
+      "type": "Usage based",
+      "billing_period": "Monthly",
+      "renewal_increment_percent": 0,
+      "override_renewal_increment_percent": false
+    }
+  ],
+  "created_date": "2017-01-24T13:04:23.666Z",
+  "updated_date": "2017-01-24T13:04:23.666Z",
+  "created_by": "no-reply@ordwaylabs.com",
+  "updated_by": "no-reply@ordwaylabs.com",
+  "custom_fields": {
+    "custom_field1": "field_value1",
+    "custom_field2": "field_value2"
+  }
+}

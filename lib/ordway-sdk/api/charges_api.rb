@@ -1,7 +1,11 @@
 module Ordway
   class ChargesApi
     def initialize(api_client = ApiClient.default)
-      @api_client = api_client
+      @api_client = if api_client.config.mocking_enabled
+                      MockApiClient.default
+                    else
+                      api_client
+                    end
     end
 
     # Create Charge

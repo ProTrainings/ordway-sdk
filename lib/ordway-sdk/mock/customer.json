@@ -1,0 +1,47 @@
+{
+  "id": "C-00001",
+  "name": "Sample Customer Name",
+  "description": "Short description for the customer",
+  "parent_customer": "",
+  "website": "www.example.com",
+  "payment_terms": "Due on receipt",
+  "billing_cycle_day": "1st day of the month",
+  "billing_contact_id": "CT-000082",
+  "shipping_contact_id": "CT-000082",
+  "status": "Active",
+  "balance": "0.0",
+  "custom_fields": {
+    "custom_field1": "field_value1",
+    "custom_field2": "field_value2"
+  },
+  "auto_pay": true,
+  "edit_auto_pay": true,
+  "tax_exempt": false,
+  "currency": "USD",
+  "payment_gateway_id": "",
+  "gateway_name": "Stripe",
+  "delivery_preferences": {
+    "print": true,
+    "email": true
+  },
+  "contacts": [
+    {
+      "id": "CT-0000882",
+      "customer_id": "C-00001",
+      "first_name": "Jim",
+      "last_name": "Bob",
+      "email": "jim@bob.com",
+      "phone": "233-222-1111",
+      "mobile": "233-222-1111",
+      "job_title": "Accounts Manager",
+      "department": "Accounting",
+      "notes": "",
+      "address1": "1 Awesome Street",
+      "address2": "",
+      "city": "Baltimore",
+      "state": "MD",
+      "zip": "21202",
+      "country": "United States"
+    }
+  ]
+}

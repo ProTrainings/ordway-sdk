@@ -1,0 +1,17 @@
+{
+  "id": "P-00001",
+  "name": "Standard Pricing",
+  "sku": "SKU-0001",
+  "status": "Active",
+  "description": "Standard Pricing",
+  "taxable": true,
+  "price": "5000",
+  "created_date": "2017-01-23T14:26:45.179Z",
+  "updated_date": "2017-01-23T14:26:45.179Z",
+  "created_by": "no-reply@ordwaylabs.com",
+  "updated_by": "no-reply@ordwaylabs.com",
+  "custom_fields": {
+    "custom_field1": "field_value1",
+    "custom_field2": "field_value2"
+  }
+}

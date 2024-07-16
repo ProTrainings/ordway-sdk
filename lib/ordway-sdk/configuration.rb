@@ -5,10 +5,12 @@ require "faraday"
 
 module Ordway
   class Configuration
-    attr_accessor :scheme, :host, :base_path, :api_key, :debugging, :logger, :timeout, :api_key_prefix
+    attr_accessor :scheme, :mocking_enabled, :host, :base_path, :api_key, :debugging, :logger, :timeout,
+      :api_key_prefix
 
     def initialize
       @scheme = scheme
+      @mocking_enabled = mocking_enabled
       @host = host
       @base_path = base_path
       @api_key = {}

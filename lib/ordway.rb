@@ -1,5 +1,6 @@
 # Common files
 require "ordway-sdk/api_client"
+require "ordway-sdk/mock_api_client"
 require "ordway-sdk/version"
 require "ordway-sdk/configuration"
 require "ordway-sdk/response"
