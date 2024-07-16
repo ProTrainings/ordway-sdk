@@ -2,10 +2,10 @@ module Ordway
   class ContactsApi
     def initialize(api_client = ApiClient.default)
       @api_client = if api_client.config.mocking_enabled
-                      MockApiClient.default
-                    else
-                      api_client
-                    end
+        MockApiClient.default
+      else
+        api_client
+      end
     end
 
     # Create Contact
@@ -15,7 +15,8 @@ module Ordway
         @api_client.config.logger.debug "Calling API: ContactsApi.create ..."
       end
 
-      result = @api_client.call("post", "customers/#{customer_id}/contacts", params: @api_client.object_to_http_body(options[:body]),
+      result = @api_client.call("post", "customers/#{customer_id}/contacts",
+        params: @api_client.object_to_http_body(options[:body]),
         opts: { return_type: "Contact" })
 
       if @api_client.config.debugging

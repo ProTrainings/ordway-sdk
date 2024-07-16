@@ -61,7 +61,7 @@ module Ordway
       end
 
       if attributes.key?(:tax_exempt)
-        self.tax_exempt = attributes[:tax_exempt]
+        self.tax_exempt = attributes[:tax_exempt] || false
       end
 
       if attributes.key?(:name)
@@ -73,7 +73,7 @@ module Ordway
       end
 
       if attributes.key?(:parent_customer)
-        self.parent_customer = attributes[:parent_customer]
+        self.parent_customer = attributes[:parent_customer] || ""
       end
 
       if attributes.key?(:edit_auto_pay)

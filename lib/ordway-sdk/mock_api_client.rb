@@ -1,7 +1,7 @@
 require "logger"
 
 module Ordway
-  require 'json'
+  require "json"
 
   class MockApiClient
     attr_accessor :config
@@ -15,24 +15,22 @@ module Ordway
       @default ||= MockApiClient.new
     end
 
-    def call(method, url, params: {}, opts: {})
+    def call(_method, _url, _params: {}, opts: {})
       target = opts[:return_type].downcase
-      spec = Gem::Specification.find_by_name('ordway-sdk')
+      spec = Gem::Specification.find_by_name("ordway-sdk")
       file_path = File.join(spec.gem_dir, "lib", "ordway-sdk", "mock", "#{target}.json")
-
 
       Response.new(true, Ordway.const_get(opts[:return_type]).map(JSON.parse(File.read(file_path))))
     end
-
 
     def object_to_http_body(model)
       return model if model.nil? || model.is_a?(String)
 
       local_body = if model.is_a?(Array)
-                     model.map { |m| object_to_hash(m) }
-                   else
-                     object_to_hash(model)
-                   end
+        model.map { |m| object_to_hash(m) }
+      else
+        object_to_hash(model)
+      end
       local_body.to_json
     end
 

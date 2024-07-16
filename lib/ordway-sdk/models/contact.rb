@@ -60,11 +60,11 @@ module Ordway
       end
 
       if attributes.key?(:first_name)
-        self.first_name = attributes[:first_name]
+        self.first_name = attributes[:first_name] || ""
       end
 
       if attributes.key?(:last_name)
-        self.last_name = attributes[:last_name]
+        self.last_name = attributes[:last_name] || ""
       end
 
       if attributes.key?(:display_name)
