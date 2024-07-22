@@ -9,7 +9,7 @@ module Ordway
       :updated_by,
       :charges,
       :status,
-      :custom_field,
+      :custom_fields,
       :public_url,
       :product_id,
       :product_name,
@@ -231,8 +231,8 @@ module Ordway
       if attributes.key?(:status)
         self.status = attributes[:status]
       end
-      if attributes.key?(:custom_field)
-        self.custom_field = attributes[:custom_field]
+      if attributes.key?(:custom_fields)
+        self.custom_fields = attributes[:custom_fields]
       end
     end
   end

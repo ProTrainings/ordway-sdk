@@ -1,7 +1,7 @@
 module Ordway
   class SubscriptionsApi
     def initialize(api_client = ApiClient.default)
-      @api_client = if api_client.config.mocking_enabled
+      @api_client = if api_client.config.mock_api?
         MockApiClient.default
       else
         api_client

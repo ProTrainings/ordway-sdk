@@ -15,7 +15,8 @@ module Ordway
       @default ||= MockApiClient.new
     end
 
-    def call(_method, _url, _params: {}, opts: {})
+    def call(_method, _url, params: {}, opts: {})
+      puts params
       target = opts[:return_type].downcase
       spec = Gem::Specification.find_by_name("ordway-sdk")
       file_path = File.join(spec.gem_dir, "lib", "ordway-sdk", "mock", "#{target}.json")

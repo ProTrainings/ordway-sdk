@@ -22,6 +22,10 @@ module Ordway
       yield(self) if block_given?
     end
 
+    def mock_api?
+      @mocking_enabled.to_s.downcase == "true"
+    end
+
     # The default Configuration object.
     def self.default
       @default ||= Configuration.new
