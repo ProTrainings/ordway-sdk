@@ -39,6 +39,7 @@ module Ordway
       :current_period_end_date,
       :billing_schedule_id,
       :charge_end_date,
+      :plan_type,
       :renewal_increment_percent,
       :override_renewal_increment_percent,
       :charge_start_date,

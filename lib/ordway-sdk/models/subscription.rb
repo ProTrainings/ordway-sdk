@@ -13,6 +13,7 @@ module Ordway
       :auto_renew,
       :currency,
       :payment_terms,
+      :organization_id,
       :cmrr,
       :discounted_cmrr,
       :separate_invoice,
@@ -152,6 +153,9 @@ module Ordway
       end
       if attributes.key?(:updated_by)
         self.updated_by = attributes[:updated_by]
+      end
+      if attributes.key?(:organization_id)
+        self.organization_id = attributes[:organization_id]
       end
       if attributes.key?(:custom_fields)
         self.custom_fields = attributes[:custom_fields]

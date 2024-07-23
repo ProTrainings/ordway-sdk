@@ -17,6 +17,9 @@ module Ordway
       :bill_to_parent,
       :payment_terms,
       :tax_exempt,
+      :custom_fields,
+      :organization_id,
+      :tenant,
       :billing_contact_id,
       :contacts,
       :payment_options
@@ -46,6 +49,14 @@ module Ordway
 
       if attributes.key?(:id)
         self.id = attributes[:id]
+      end
+
+      if attributes.key?(:organization_id)
+        self.organization_id = attributes[:organization_id]
+      end
+
+      if attributes.key?(:tenant)
+        self.tenant = attributes[:tenant]
       end
 
       if attributes.key?(:contacts)
@@ -108,6 +119,10 @@ module Ordway
         attributes[:customer_type]
       else
         "business"
+                           end
+
+      if attributes.key?(:custom_fields)
+        self.custom_fields = attributes[:custom_fields]
       end
     end
   end
