@@ -93,6 +93,9 @@ module Ordway
       if attributes.key?(:charge_id)
         self.charge_id = attributes[:charge_id]
       end
+      if attributes.key?(:plan_type)
+        self.plan_type = attributes[:plan_type]
+      end
       if attributes.key?(:charge_name)
         self.charge_name = attributes[:charge_name]
       end

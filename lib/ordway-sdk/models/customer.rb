@@ -119,7 +119,7 @@ module Ordway
         attributes[:customer_type]
       else
         "business"
-                           end
+      end
 
       if attributes.key?(:custom_fields)
         self.custom_fields = attributes[:custom_fields]
