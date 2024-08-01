@@ -8,6 +8,21 @@ module Ordway
       end
     end
 
+    # Get Subscription
+    def get(id)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SubscriptionsApi.get ..."
+      end
+
+      result = @api_client.call("get", "subscriptions/#{id}", opts: { return_type: "Subscription" })
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SubscriptionsApi#get\nData: #{result.inspect}"
+      end
+
+      result
+    end
+
     # Create Subscription
     # @option opts [Subscription] :body
     def create(params = {})

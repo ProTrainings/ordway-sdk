@@ -14,6 +14,7 @@ require "ordway-sdk/models/plan"
 require "ordway-sdk/models/charge"
 require "ordway-sdk/models/tier"
 require "ordway-sdk/models/subscription"
+require "ordway-sdk/models/subscription_plan"
 require "ordway-sdk/models/order"
 require "ordway-sdk/models/line_item"
 

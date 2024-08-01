@@ -30,6 +30,17 @@ describe "SubscriptionsApi" do
     expect(result.success?).to eql(true)
   end
 
+  # Get Subscription
+  it "get" do
+    response = Ordway::Subscription.new(id: "124")
+    new_resource = double
+    allow(Ordway::SubscriptionsApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:get).and_return(Ordway::Response.new(true, response))
+
+    result = Ordway::SubscriptionsApi.new.get("C-1")
+    expect(result.success?).to eql(true)
+  end
+
   # List Subscription
   it "list" do
     response = [Ordway::Subscription.new(id: "124")]

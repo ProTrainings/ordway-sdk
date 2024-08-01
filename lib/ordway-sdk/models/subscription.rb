@@ -48,7 +48,7 @@ module Ordway
     end
 
     def self.map_subscription(data)
-      data[:plans] = Plan.map(data["plans"]) if data["plans"].present?
+      data[:plans] = SubscriptionPlan.map(data["plans"]) if data["plans"].present?
       Subscription.new(data)
     end
 
