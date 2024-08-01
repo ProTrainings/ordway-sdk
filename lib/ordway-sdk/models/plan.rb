@@ -11,7 +11,8 @@ module Ordway
       :charges,
       :public_url,
       :status,
-      :custom_fields
+      :custom_fields,
+      :plan_type
 
     def self.map(data)
       if data.is_a?(Hash)
@@ -63,6 +64,9 @@ module Ordway
       end
       if attributes.key?(:custom_fields)
         self.custom_fields = attributes[:custom_fields]
+      end
+      if attributes.key?(:plan_type)
+        self.plan_type = attributes[:plan_type]
       end
     end
   end
