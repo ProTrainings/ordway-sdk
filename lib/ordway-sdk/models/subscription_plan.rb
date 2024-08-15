@@ -55,7 +55,7 @@ module Ordway
           product_id: p.product_id,
           plan_id: plan.id,
           charge_id: p.id,
-          charge_name: p.name,
+          charge_name: p.name
         )
       end
     end

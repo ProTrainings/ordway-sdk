@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Product" do
+describe "Charge" do
   context "test an instance of Charge" do
     it "should create an instance of Charge" do
       charge = Ordway::Charge.new
