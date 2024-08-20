@@ -14,6 +14,7 @@ require "ordway-sdk/models/plan"
 require "ordway-sdk/models/payment"
 require "ordway-sdk/models/payment_invoice"
 require "ordway-sdk/models/payment_refund"
+require "ordway-sdk/models/payment_method"
 require "ordway-sdk/models/charge"
 require "ordway-sdk/models/tier"
 require "ordway-sdk/models/subscription"
@@ -30,6 +31,7 @@ require "ordway-sdk/api/charges_api"
 require "ordway-sdk/api/subscriptions_api"
 require "ordway-sdk/api/orders_api"
 require "ordway-sdk/api/payments_api"
+require "ordway-sdk/api/payment_methods_api"
 
 module Ordway
   class << self
