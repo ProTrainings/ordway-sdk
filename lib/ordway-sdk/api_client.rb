@@ -46,6 +46,7 @@ module Ordway
 
     def call(method, url, params: {}, opts: {})
       begin
+        debugger
         response = @conn.send(method) do |req|
           case method.to_sym
           when :get, :delete
@@ -55,6 +56,7 @@ module Ordway
             req.body = params
           end
         end
+
 
         if @config.debugging
           @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"

@@ -2,9 +2,12 @@
 module Ordway
   # PaymentMethod
   class PaymentMethod
-    attr_accessor :customer_id,
+    attr_accessor :id,
+      :payment_method_id,
+      :customer_id,
       :customer_payment_gateway_id,
       :payment_type,
+      :token,
       :type,
       :account_number,
       :routing_number,
@@ -35,9 +38,17 @@ module Ordway
 
       # convert string to symbol for hash key
       attributes = attributes.transform_keys(&:to_sym)
-
+      if attributes.key?(:id)
+        self.id = attributes[:id]
+      end
+      if attributes.key?(:payment_method_id)
+        self.payment_method_id = attributes[:payment_method_id]
+      end
       if attributes.key?(:customer_id)
         self.customer_id = attributes[:customer_id]
+      end
+      if attributes.key?(:token)
+        self.token = attributes[:token]
       end
       if attributes.key?(:customer_payment_gateway_id)
         self.customer_payment_gateway_id = attributes[:customer_payment_gateway_id]
