@@ -46,7 +46,6 @@ module Ordway
 
     def call(method, url, params: {}, opts: {})
       begin
-        debugger
         response = @conn.send(method) do |req|
           case method.to_sym
           when :get, :delete
