@@ -67,7 +67,7 @@ module Ordway
       end
 
       @config.logger.error "An error occurred: #{e.message} \n Details: #{details}"
-      Response.new(false)
+      Response.new(false, details)
     end
 
     def deserialize(response, opts: {})
