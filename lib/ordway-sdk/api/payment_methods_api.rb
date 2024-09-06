@@ -24,7 +24,6 @@ module Ordway
       result
     end
 
-
     # Create PaymentMethods
     # @option opts [PaymentMethods] :body
     def create(customer_id, options = {})

@@ -56,7 +56,6 @@ module Ordway
           end
         end
 
-
         if @config.debugging
           @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
         end
