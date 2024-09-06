@@ -13,7 +13,7 @@ module Ordway
       :routing_number,
       :account_holder_name,
       :account_type,
-      :sec_code,
+      :sec,
       :account_holder_type,
       :country,
       :expiry,
@@ -46,8 +46,8 @@ module Ordway
       if attributes.key?(:payment_method_id)
         self.payment_method_id = attributes[:payment_method_id]
       end
-      if attributes.key?(:sec_code)
-        self.sec_code = attributes[:sec_code]
+      if attributes.key?(:sec)
+        self.sec = attributes[:sec]
       end
       if attributes.key?(:account_type)
         self.account_type = attributes[:account_type]
