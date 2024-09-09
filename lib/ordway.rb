@@ -21,6 +21,10 @@ require "ordway-sdk/models/subscription"
 require "ordway-sdk/models/subscription_plan"
 require "ordway-sdk/models/order"
 require "ordway-sdk/models/line_item"
+require "ordway-sdk/models/invoice"
+require "ordway-sdk/models/invoice_line_item"
+require "ordway-sdk/models/tax_line"
+require "ordway-sdk/models/sub_total"
 
 # APIs
 require "ordway-sdk/api/customers_api"
@@ -32,6 +36,7 @@ require "ordway-sdk/api/subscriptions_api"
 require "ordway-sdk/api/orders_api"
 require "ordway-sdk/api/payments_api"
 require "ordway-sdk/api/payment_methods_api"
+require "ordway-sdk/api/invoices_api"
 
 module Ordway
   class << self
