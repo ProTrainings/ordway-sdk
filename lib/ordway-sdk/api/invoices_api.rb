@@ -33,9 +33,7 @@ module Ordway
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: InvoicesApi.get ..."
       end
-      result = @api_client.call("get", "invoices/#{id}",
-        params: params,
-        opts: { return_type: "Invoice" })
+      result = @api_client.call("get", "invoices/#{id}", opts: { return_type: "Invoice" })
 
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InvoicesApi#get\nData: #{result.inspect}"
