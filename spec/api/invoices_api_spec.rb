@@ -18,4 +18,15 @@ describe "InvoicesApi" do
     result = Ordway::InvoicesApi.new.list
     expect(result.success?).to eql(true)
   end
+
+  # Get Invoice
+  it "get" do
+    response = Ordway::Invoice.new(id: "124")
+    new_resource = double
+    allow(Ordway::InvoicesApi).to receive(:new).and_return(new_resource)
+    allow(new_resource).to receive(:get).and_return(Ordway::Response.new(true, response))
+
+    result = Ordway::InvoicesApi.new.get("INV-1")
+    expect(result.success?).to eql(true)
+  end
 end
