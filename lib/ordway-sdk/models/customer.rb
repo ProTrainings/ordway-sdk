@@ -22,7 +22,8 @@ module Ordway
       :tenant,
       :billing_contact_id,
       :contacts,
-      :payment_options
+      :payment_options,
+      :hubspot_id
 
     def self.map(data)
       if data.is_a?(Hash)
@@ -57,6 +58,10 @@ module Ordway
 
       if attributes.key?(:tenant)
         self.tenant = attributes[:tenant]
+      end
+
+      if attributes.key?(:hubspot_id)
+        self.hubspot_id = attributes[:hubspot_id]
       end
 
       if attributes.key?(:contacts)
