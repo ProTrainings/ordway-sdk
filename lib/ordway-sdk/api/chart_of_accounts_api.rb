@@ -14,7 +14,7 @@ module Ordway
         @api_client.config.logger.debug "Calling API: ChartOfAccountsApi.get ..."
       end
 
-      result = @api_client.call("get", "chart_of_accounts", opts: { return_type: "Subscription" })
+      result = @api_client.call("get", "chart_of_accounts", opts: { return_type: "ChartOfAccount" })
 
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ChartOfAccountsApi#get\nData: #{result.inspect}"

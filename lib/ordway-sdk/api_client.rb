@@ -32,7 +32,7 @@ module Ordway
           config.logger,
           headers: false,
           bodies: false,
-          log_level: :info
+          log_level: :error
         c.adapter :net_http
         c.request :json
         c.request :retry, retry_options

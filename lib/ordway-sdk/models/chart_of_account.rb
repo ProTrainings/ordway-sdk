@@ -35,36 +35,45 @@ module Ordway
       attributes = attributes.transform_keys(&:to_sym)
 
       if attributes.key?(:code)
-        self.name = attributes[:code]
+        self.code = attributes[:code]
       end
 
       if attributes.key?(:name)
         self.name = attributes[:name]
       end
+
       if attributes.key?(:account_type)
         self.account_type = attributes[:account_type]
       end
+
       if attributes.key?(:sub_type)
         self.sub_type = attributes[:sub_type]
       end
+
       if attributes.key?(:parent_account)
         self.parent_account = attributes[:parent_account]
       end
+
       if attributes.key?(:status)
         self.status = attributes[:status]
       end
+
       if attributes.key?(:description)
         self.description = attributes[:description]
       end
+
       if attributes.key?(:created_by)
         self.created_by = attributes[:created_by]
       end
+
       if attributes.key?(:updated_by)
         self.updated_by = attributes[:updated_by]
       end
+
       if attributes.key?(:created_date)
         self.created_date = attributes[:created_date]
       end
+
       if attributes.key?(:updated_date)
         self.updated_date = attributes[:updated_date]
       end

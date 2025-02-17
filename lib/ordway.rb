@@ -26,6 +26,8 @@ require "ordway-sdk/models/invoice"
 require "ordway-sdk/models/invoice_line_item"
 require "ordway-sdk/models/tax_line"
 require "ordway-sdk/models/sub_total"
+require "ordway-sdk/models/revenue_schedule"
+require "ordway-sdk/models/billing_schedule"
 
 # APIs
 require "ordway-sdk/api/customers_api"
