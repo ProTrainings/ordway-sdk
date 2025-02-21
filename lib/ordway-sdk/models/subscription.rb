@@ -3,6 +3,7 @@ module Ordway
   class Subscription
     attr_accessor :id,
       :customer_id,
+      :subscription_type,
       :status,
       :billing_start_date,
       :service_start_date,
@@ -60,6 +61,11 @@ module Ordway
       if attributes.key?(:id)
         self.id = attributes[:id]
       end
+
+      if attributes.key?(:subscription_type)
+        self.subscription_type = attributes[:subscription_type]
+      end
+      
       if attributes.key?(:billing_period)
         self.billing_period = attributes[:billing_period]
       end
