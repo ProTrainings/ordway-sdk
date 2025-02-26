@@ -10,6 +10,7 @@ module Ordway
       :plan_id,
       :plan_name,
       :charge_id,
+      :order_id,
       :charge_name,
       :charge_type,
       :description,
@@ -51,6 +52,9 @@ module Ordway
 
       if attributes.key?(:line_no)
         self.line_no = attributes[:line_no]
+      end
+      if attributes.key?(:order_id)
+        self.order_id = attributes[:order_id]
       end
       if attributes.key?(:subscription_id)
         self.subscription_id = attributes[:subscription_id]
