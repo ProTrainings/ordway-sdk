@@ -65,7 +65,7 @@ module Ordway
       if attributes.key?(:subscription_type)
         self.subscription_type = attributes[:subscription_type]
       end
-      
+
       if attributes.key?(:billing_period)
         self.billing_period = attributes[:billing_period]
       end

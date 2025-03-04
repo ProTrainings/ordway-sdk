@@ -23,13 +23,14 @@ module Ordway
       result
     end
 
-    def update(subscription_id, params={})
+    def update(subscription_id, params = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SubscriptionsApi.update ..."
       end
 
-      result = @api_client.call("put", "subscriptions/#{subscription_id}", params: @api_client.object_to_http_body(params[:body]),
-                                opts: { return_type: "Subscription" })
+      result = @api_client.call("put", "subscriptions/#{subscription_id}",
+        params: @api_client.object_to_http_body(params[:body]),
+        opts: { return_type: "Subscription" })
 
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SubscriptionsApi#update\nData:#{result.inspect}"

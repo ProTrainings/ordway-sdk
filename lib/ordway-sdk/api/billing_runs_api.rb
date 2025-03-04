@@ -2,10 +2,10 @@ module Ordway
   class BillingRunsApi
     def initialize(api_client = ApiClient.default)
       @api_client = if api_client.config.mock_api?
-                      MockApiClient.default
-                    else
-                      api_client
-                    end
+        MockApiClient.default
+      else
+        api_client
+      end
     end
 
     # Create Billing Run
@@ -16,7 +16,7 @@ module Ordway
       end
 
       result = @api_client.call("post", "billing_runs", params: @api_client.object_to_http_body(params[:body]),
-                                opts: { return_type: "BillingRun" })
+        opts: { return_type: "BillingRun" })
 
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: BillingRunsApi#create\nData:#{result.inspect}"

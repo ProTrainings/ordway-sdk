@@ -24,7 +24,7 @@ module Ordway
     end
 
     def initialize(attributes = {})
-      nil unless attributes.is_a?(Hash)
+      return unless attributes.is_a?(Hash)
 
       # convert string to symbol for hash key
       attributes = attributes.transform_keys(&:to_sym)
