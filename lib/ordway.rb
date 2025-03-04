@@ -29,6 +29,7 @@ require "ordway-sdk/models/sub_total"
 require "ordway-sdk/models/revenue_schedule"
 require "ordway-sdk/models/billing_schedule"
 require "ordway-sdk/models/billing_run"
+require "ordway-sdk/models/payment_run"
 
 # APIs
 require "ordway-sdk/api/customers_api"
@@ -43,6 +44,7 @@ require "ordway-sdk/api/payments_api"
 require "ordway-sdk/api/payment_methods_api"
 require "ordway-sdk/api/invoices_api"
 require "ordway-sdk/api/billing_runs_api"
+require "ordway-sdk/api/payment_runs_api"
 
 module Ordway
   class << self

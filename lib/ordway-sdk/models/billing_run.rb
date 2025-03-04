@@ -1,27 +1,29 @@
+# rubocop:disable Metrics/CyclomaticComplexity
 module Ordway
   # BillingSchedule
   class BillingRun
     attr_accessor :id,
-                  :status,
-                  :target_date,
-                  :invoice_date,
-                  :invoices_total,
-                  :invoices_count,
-                  :auto_post,
-                  :send_after_post,
-                  :do_not_email_if_invoice_balance_zero,
-                  :do_not_email_if_auto_pay_is_on_with_payment_method,
-                  :do_not_email_if_invoice_amount_zero,
-                  :skip_zero_lines,
-                  :currency,
-                  :charge_type,
-                  :filter_options,
-                  :customer_filter_options,
-                  :subscription_filter_options,
-                  :created_by,
-                  :updated_by,
-                  :created_date,
-                  :updated_date
+      :status,
+      :target_date,
+      :invoice_date,
+      :invoices_total,
+      :invoices_count,
+      :auto_post,
+      :send_after_post,
+      :do_not_email_if_invoice_balance_zero,
+      :do_not_email_if_auto_pay_is_on_with_payment_method,
+      :do_not_email_if_invoice_amount_zero,
+      :skip_zero_lines,
+      :currency,
+      :charge_type,
+      :filter_options,
+      :customer_filter_options,
+      :subscription_filter_options,
+      :created_by,
+      :updated_by,
+      :created_date,
+      :updated_date
+
     def self.map(data)
       if data.is_a?(Hash)
         return map_billing_run(data)
@@ -55,7 +57,8 @@ module Ordway
       end
 
       if attributes.key?(:do_not_email_if_auto_pay_is_on_with_payment_method)
-        self.do_not_email_if_auto_pay_is_on_with_payment_method = attributes[:do_not_email_if_auto_pay_is_on_with_payment_method]
+        self.do_not_email_if_auto_pay_is_on_with_payment_method =
+          attributes[:do_not_email_if_auto_pay_is_on_with_payment_method]
       end
 
       if attributes.key?(:skip_zero_lines)
@@ -128,3 +131,4 @@ module Ordway
     end
   end
 end
+# rubocop:enable Metrics/CyclomaticComplexity
