@@ -39,6 +39,22 @@ module Ordway
       result
     end
 
+    def change(subscription_id, params = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SubscriptionsApi.change ..."
+      end
+
+      result = @api_client.call("put", "subscriptions/#{subscription_id}/change",
+                                params: @api_client.object_to_http_body(params[:body]),
+                                opts: { return_type: "Subscription" })
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SubscriptionsApi#change\nData:#{result.inspect}"
+      end
+
+      result
+    end
+
     # Create Subscription
     # @option opts [Subscription] :body
     def create(params = {})
