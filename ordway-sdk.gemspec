@@ -20,7 +20,8 @@ Gem::Specification.new do |s|
   s.email       = [""]
   s.homepage    = "https://github.com/ProTrainings/ordway-sdk"
   s.summary     = "Ruby SDK for Ordway API"
-  s.description = "A Ruby SDK for interacting with the Ordway API, providing a simple and intuitive interface for billing and subscription management."
+  s.description = "A Ruby SDK for interacting with the Ordway API, providing a simple " \
+                  "and intuitive interface for billing and subscription management."
   s.license     = "MIT"
   s.required_ruby_version = ">= 2.7.0"
 
@@ -29,13 +30,6 @@ Gem::Specification.new do |s|
   s.add_dependency "faraday", "~> 2.7"
   s.add_dependency "faraday-retry", "~> 2.2"
   s.add_dependency "json", "~> 2.6"
-
-  # Development dependencies
-  s.add_development_dependency "rspec", "~> 3.12"
-  s.add_development_dependency "webmock", "~> 3.19"
-  s.add_development_dependency "rubocop", "~> 1.57"
-  s.add_development_dependency "rubocop-rails", "~> 2.24"
-  s.add_development_dependency "rubocop-rspec", "~> 3.5"
 
   # Files
   s.files         = `find *`.split("\n").uniq.sort.reject(&:empty?)
