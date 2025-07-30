@@ -63,7 +63,7 @@ module Ordway
         @api_client.config.logger.debug "Calling API: ProductsApi.list ..."
       end
 
-      allowed_params = [:name, :active]
+      allowed_params = [:name, :status]
       params = incoming_params.slice(*allowed_params).compact
 
       result = @api_client.call("get", "products", params: params, opts: { return_type: "Product" })
