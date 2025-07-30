@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080">
+  <rect width="100%" height="100%" fill="#131628" />
+
+  <text x="153.6" y="810.0" 
+        font-size="32" fill="#31D2FF"
+        font-family="New Kansas"
+        font-style="italic"
+        font-weight="500"
+        dominant-baseline="hanging">
+    Introduction, Preparation & Safety
+  </text>
+
+  <text x="153.6" y="918.0" 
+        font-size="64" fill="#FFFFFF"
+        font-family="Inter, sans-serif"
+        font-weight="600"
+        dominant-baseline="baseline">
+    <tspan x="153.6" dy="0" font-size="64" font-family="Inter, sans-serif">Making a Cat and Dog</tspan>
+    <tspan x="153.6" dy="76.8" font-size="64" font-family="Inter, sans-serif">First Aid Kit</tspan>
+  </text>
+</svg> 

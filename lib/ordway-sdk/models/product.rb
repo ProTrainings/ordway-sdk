@@ -9,7 +9,8 @@ module Ordway
       :price,
       :revenue_rule_id,
       :recognition_start_date,
-      :transaction_posting_entries
+      :transaction_posting_entries,
+      :learn_product_id
 
     def self.map(data)
       if data.is_a?(Hash)
@@ -42,6 +43,10 @@ module Ordway
 
       if attributes.key?(:name)
         self.name = attributes[:name]
+      end
+
+      if attributes.key?(:learn_product_id)
+        self.learn_product_id = attributes[:learn_product_id]
       end
 
       # default is active
