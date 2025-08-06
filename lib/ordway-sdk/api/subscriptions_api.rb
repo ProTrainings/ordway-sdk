@@ -57,12 +57,15 @@ module Ordway
     end
 
     # Get Subscriptions
-    def list
+    def list(incoming_params = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SubscriptionsApi.list ..."
       end
 
-      result = @api_client.call("get", "subscriptions", opts: { return_type: "Subscription" })
+      allowed_params = [:customer_id, :status]
+      params = incoming_params.slice(*allowed_params).compact
+
+      result = @api_client.call("get", "subscriptions", params: params, opts: { return_type: "Subscription" })
 
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SubscriptionsApi#list\nData: #{result.inspect}"

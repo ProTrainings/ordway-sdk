@@ -16,7 +16,7 @@ module Ordway
 
       allowed_params = [:name, :status]
       params = incoming_params.slice(*allowed_params).compact
-      
+
       result = @api_client.call("get", "customers", params: params, opts: { return_type: "Customer" })
 
       if @api_client.config.debugging
