@@ -8,6 +8,20 @@ module Ordway
       end
     end
 
+    def set_default(customer_id, id)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PaymentMethodsApi.set_default ..."
+      end
+
+      result = @api_client.call("put", "customers/#{customer_id}/payment_methods/#{id}/set_default", opts: { return_type: "PaymentMethod" })
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PaymentMethodsApi#set_default\nData:#{result.inspect}"
+      end
+
+      result
+    end
+
     # Get Payment Methods
     def list(customer_id)
       if @api_client.config.debugging
